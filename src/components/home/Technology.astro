@@ -1,0 +1,73 @@
+---
+import Icon from '../Icon.astro';
+import Ticker from '../Ticker.astro';
+import { partners } from '../../data/site';
+
+const hub = [
+  {
+    title: 'Elevator mechanism',
+    text: 'Follow the drive, suspension, guidance, cabin, doors and controls.',
+    href: '/technical/elevator-mechanism/',
+    image: '/images/mechanism/lift mechanism-1.webp',
+    icon: 'gear',
+  },
+  {
+    title: 'Components & technology',
+    text: 'Doors, drives, ropes, rails and controls working as one system.',
+    href: '/technical/components/',
+    image: '/images/technical/technolgy-image.webp',
+    icon: 'layers',
+  },
+  {
+    title: 'Safety & engineering',
+    text: 'The right questions, suitable components and ongoing care.',
+    href: '/technical/safety-engineering/',
+    image: '/images/technical/technical-image-6.webp',
+    icon: 'shield',
+  },
+];
+---
+
+<section class="section technology" id="floor-8" data-floor="8" data-floor-name="Technology">
+  <div class="wide">
+    <div class="section-head" data-reveal>
+      <div>
+        <div class="eyebrow"><span class="floor-tag">08</span> Beauty outside. Intelligence within.</div>
+        <h2>Technology you can <em>trust every day.</em></h2>
+      </div>
+      <a class="text-link" href="/technical/">Technical overview <Icon size={18} /></a>
+    </div>
+    <div class="tech-grid">
+      {
+        hub.map((h, i) => (
+          <a class="tech-card card-hover" href={h.href} data-reveal style={`--i:${i}`} data-tilt>
+            <span class="tech-media">
+              <img src={h.image} alt="" loading="lazy" width="800" height="600" />
+            </span>
+            <span class="tech-body">
+              <span class="tech-icon">
+                <Icon name={h.icon} size={22} />
+              </span>
+              <strong>{h.title}</strong>
+              <span>{h.text}</span>
+              <span class="service-more">
+                Explore <Icon size={16} />
+              </span>
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+  <div class="brands" aria-labelledby="brands-title">
+    <div class="wide brands-head" data-reveal>
+      <h3 id="brands-title">Components from leading industry brands</h3>
+      <a class="text-link" href="/partners/">Our component connections <Icon size={16} /></a>
+    </div>
+    <Ticker items={partners.map((p) => p.name)} variant="outline" />
+    <Ticker items={partners.map((p) => p.category)} variant="dark" reverse />
+    <ul class="sr-only">
+      {partners.map((p) => <li>{p.name} — {p.category}</li>)}
+    </ul>
+  </div>
+</section>

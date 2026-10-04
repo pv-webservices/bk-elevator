@@ -1,0 +1,30 @@
+---
+import CabinCard from '../CabinCard.astro';
+import { cabins, cabinTones } from '../../data/site';
+---
+
+<section class="section light">
+  <div class="wide">
+    <div class="section-head" data-reveal>
+      <div>
+        <div class="eyebrow">Find your expression</div>
+        <h2>The complete collection.</h2>
+      </div>
+      <p>Labels describe the visual style. Finishes and configurations are confirmed on enquiry.</p>
+    </div>
+    <div class="filter-bar" role="toolbar" aria-label="Filter cabin designs by finish" data-filter-bar>
+      {
+        cabinTones.map((t, i) => (
+          <button class="filter-chip" data-filter={t.id} aria-pressed={i === 0 ? 'true' : 'false'}>
+            {t.label}
+            <span class="filter-count">{t.id === 'all' ? cabins.length : cabins.filter((c) => c.tone === t.id).length}</span>
+          </button>
+        ))
+      }
+      <span class="filter-status" aria-live="polite" data-filter-status>Showing all {cabins.length} designs</span>
+    </div>
+    <div class="cabin-grid" data-filter-grid>
+      {cabins.map((cabin, i) => <CabinCard cabin={cabin} index={i} />)}
+    </div>
+  </div>
+</section>

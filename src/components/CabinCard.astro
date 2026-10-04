@@ -1,0 +1,47 @@
+---
+import Icon from './Icon.astro';
+import { cabinSrcset, enquiryUrl } from '../data/site';
+
+interface Props {
+  cabin: { id: number; title: string; finish: string; tone: string };
+  index: number;
+  sizes?: string;
+}
+const { cabin, index, sizes = '(max-width: 600px) 80vw, (max-width: 1000px) 45vw, 30vw' } = Astro.props;
+---
+
+<article class="cabin-card card-hover" data-tone={cabin.tone} data-tilt>
+  <button
+    class="cabin-media"
+    data-image={`/images/cabins/cabin-${cabin.id}.webp`}
+    data-title={cabin.title}
+    data-gallery="cabins"
+    data-enquire={enquiryUrl('Cabin design', { design: cabin.title })}
+    aria-label={`Enlarge the ${cabin.title} cabin`}
+  >
+    <img
+      src={`/images/cabins/cabin-${cabin.id}-720.webp`}
+      srcset={cabinSrcset(cabin.id)}
+      {sizes}
+      width="1000"
+      height="1400"
+      alt={`${cabin.title} elevator cabin — ${cabin.finish}`}
+      loading="lazy"
+    />
+    <span class="cabin-number">{String(index + 1).padStart(2, '0')}</span>
+    <span class="cabin-expand"><Icon name="expand" size={18} /></span>
+  </button>
+  <div class="cabin-caption">
+    <div>
+      <h3>{cabin.title}</h3>
+      <p>{cabin.finish}</p>
+    </div>
+    <a
+      class="round-link"
+      href={enquiryUrl('Cabin design', { design: cabin.title })}
+      aria-label={`Enquire about the ${cabin.title} cabin`}
+    >
+      <Icon size={18} />
+    </a>
+  </div>
+</article>

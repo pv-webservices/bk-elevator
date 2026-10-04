@@ -1,0 +1,253 @@
+/* ---------- Dialogs ---------- */
+dialog {
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--ink-1);
+  color: var(--text);
+  padding: 18px;
+  max-width: min(94vw, 980px);
+  max-height: 94vh;
+  max-height: 94dvh;
+}
+dialog::backdrop {
+  background: rgba(4, 5, 7, 0.82);
+  backdrop-filter: blur(8px);
+}
+dialog[open] {
+  animation: dialog-in 0.5s var(--ease);
+}
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+}
+.dialog-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.dialog-header h2 {
+  font-size: 20px;
+  flex: 1;
+}
+.dialog-count {
+  font-size: 13px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.dialog-close {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  transition:
+    background-color 0.3s,
+    transform 0.4s var(--ease);
+}
+.dialog-close:hover {
+  background: var(--gold);
+  color: var(--ink-0);
+  transform: rotate(90deg);
+}
+.video-dialog video {
+  width: auto;
+  max-width: 100%;
+  max-height: calc(94dvh - 130px);
+  margin-inline: auto;
+  border-radius: var(--radius-s);
+  background: #000;
+}
+.video-dialog p {
+  font-size: 13px;
+  margin-top: 10px;
+}
+.dialog-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+.image-dialog img {
+  max-height: calc(94dvh - 160px);
+  width: auto;
+  border-radius: var(--radius-s);
+  background: #fff;
+}
+.dialog-nav {
+  position: absolute;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-top: -24px;
+  border-radius: 50%;
+  background: rgba(7, 9, 11, 0.75);
+  border: 1px solid var(--line-strong);
+  color: var(--gold);
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+.dialog-nav:hover {
+  background: var(--gold);
+  color: var(--ink-0);
+}
+.dialog-prev {
+  left: 10px;
+}
+.dialog-next {
+  right: 10px;
+}
+.dialog-nav[hidden] {
+  display: none;
+}
+.image-dialog .btn {
+  margin-top: 14px;
+}
+
+/* ---------- Forms ---------- */
+.enquiry-form {
+  display: grid;
+  gap: 22px;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.form-grid label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+.form-grid label span {
+  color: #c0551b;
+}
+.form-grid .full {
+  grid-column: 1 / -1;
+}
+.form-grid input,
+.form-grid select,
+.form-grid textarea {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px 16px;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-dark);
+  background: #fff;
+  border: 1px solid var(--line-dark);
+  border-radius: 12px;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+.form-grid textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+.form-grid input:focus,
+.form-grid select:focus,
+.form-grid textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 4px rgba(239, 167, 46, 0.18);
+}
+.form-grid input:user-invalid,
+.form-grid select:user-invalid,
+.form-grid textarea:user-invalid {
+  border-color: #c0551b;
+}
+.form-note {
+  font-size: 13px;
+}
+.form-note a {
+  text-decoration: underline;
+}
+.enquiry-form > .btn {
+  justify-self: start;
+}
+.enquiry-result {
+  padding: 22px;
+  border-radius: var(--radius);
+  background: #fff6e4;
+  border: 1px solid rgba(239, 167, 46, 0.5);
+  display: grid;
+  gap: 12px;
+}
+.enquiry-result h3 {
+  color: var(--text-dark);
+}
+.enquiry-result[hidden] {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .category-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .category-card:first-child {
+    grid-row: auto;
+  }
+  .category-media {
+    min-height: 130px;
+  }
+  .category-body {
+    padding: 14px;
+  }
+  .category-body strong {
+    font-size: 16px;
+  }
+  .category-body > span {
+    display: none;
+  }
+  .category-arrow {
+    width: 34px;
+    height: 34px;
+  }
+  .video-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .video-caption {
+    padding: 12px;
+  }
+  .video-caption strong {
+    font-size: 15px;
+  }
+  .play-circle {
+    width: 50px;
+    height: 50px;
+    margin: -25px 0 0 -25px;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .btn {
+    white-space: normal;
+    text-align: left;
+  }
+  dialog {
+    padding: 12px;
+  }
+  .dialog-nav {
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+  }
+}

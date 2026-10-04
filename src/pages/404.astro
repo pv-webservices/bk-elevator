@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<Layout title="Floor not found" description="Return to the Bk Elevator homepage to continue your journey.">
+  <section class="not-found">
+    <div class="hero-shaft" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <div class="wide not-found-inner">
+      <div class="not-found-display" aria-hidden="true">
+        <span class="lift-arrow"><Icon name="tri-down" size={18} /></span>
+        <span>404</span>
+      </div>
+      <div class="eyebrow eyebrow-center">Floor not found</div>
+      <h1>Let’s get you <em>back on track.</em></h1>
+      <p>The page you’re looking for isn’t on this floor. Take the lift back to the lobby or explore the collection.</p>
+      <div class="button-row button-row-center">
+        <a href="/" class="btn"><span>Return to the lobby</span><Icon name="up" size={16} /></a>
+        <a href="/cabin-designs/" class="btn btn-ghost"><span>Cabin designs</span><Icon size={16} /></a>
+      </div>
+    </div>
+  </section>
+</Layout>

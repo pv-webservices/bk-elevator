@@ -1,0 +1,92 @@
+---
+import Icon from '../Icon.astro';
+
+const steps = [
+  {
+    n: '01',
+    title: 'Imagine',
+    tag: 'Design',
+    text: 'Your space, your vision. Choose cabin interiors, finishes and operating panels that feel unmistakably yours.',
+    image: '/images/cabins/cabin-2-720.webp',
+    href: '/cabin-designs/',
+    cta: 'Browse cabin designs',
+    points: ['Ten signature cabin styles', 'Six operating-panel finishes', 'Guidance on materials'],
+  },
+  {
+    n: '02',
+    title: 'Engineer',
+    tag: 'Engineering',
+    text: 'The right systems working beautifully together — drive, ropes, rails, doors and controls selected as one.',
+    image: '/images/mechanism/lift mechanism-1.webp',
+    href: '/technical/',
+    cta: 'Explore our engineering',
+    points: ['Site & shaft review', 'Compatible component selection', 'Technical layout references'],
+  },
+  {
+    n: '03',
+    title: 'Bring to life',
+    tag: 'Installation',
+    text: 'Precision on site, from planning and coordination to commissioning and a confident handover.',
+    image: '/images/mechanism/lift mechanism-2.webp',
+    href: '/services/installation/',
+    cta: 'See the installation process',
+    points: ['Installation coordination', 'Commissioning & testing', 'Handover walkthrough'],
+  },
+  {
+    n: '04',
+    title: 'Keep moving',
+    tag: 'Support',
+    text: 'Care that continues long after the first ride — maintenance, modernization and annual service plans.',
+    image: '/images/videos/elevator-3.webp',
+    href: '/services/amc/',
+    cta: 'Discover AMC support',
+    points: ['Preventive maintenance', 'Modernization options', 'Annual maintenance contracts'],
+  },
+];
+---
+
+<section class="section process" id="floor-4" data-floor="4" data-floor-name="The journey">
+  <div class="wide">
+    <div class="section-head" data-reveal>
+      <div>
+        <div class="eyebrow"><span class="floor-tag">04</span> The Bk Elevator journey</div>
+        <h2>From your vision. <em>To vertical reality.</em></h2>
+      </div>
+      <p>One partner at every step. Scroll through the four stages that take an idea from drawing to daily ride.</p>
+    </div>
+    <div class="stack" data-stack>
+      {
+        steps.map((s, i) => (
+          <article class="stack-card" style={`--i:${i}`} data-stack-card>
+            <div class="stack-copy">
+              <div class="stack-top">
+                <span class="stack-number">{s.n}</span>
+                <span class="chip">{s.tag}</span>
+              </div>
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
+              <ul class="check-list">
+                {s.points.map((p) => (
+                  <li>
+                    <Icon name="check" size={16} />
+                    {p}
+                  </li>
+                ))}
+              </ul>
+              <a class="btn btn-outline" href={s.href}>
+                <span>{s.cta}</span>
+                <Icon size={16} />
+              </a>
+            </div>
+            <div class="stack-media">
+              <img src={s.image} alt={`${s.tag}: ${s.title}`} loading="lazy" width="720" height="900" />
+              <span class="stack-floor">
+                Floor {s.n} / 04
+              </span>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

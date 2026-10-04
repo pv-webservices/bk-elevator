@@ -1,0 +1,27 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  items: string[];
+  variant?: 'gold' | 'dark' | 'outline';
+  reverse?: boolean;
+}
+const { items, variant = 'gold', reverse = false } = Astro.props;
+---
+
+<div class:list={['ticker', `ticker-${variant}`, { 'ticker-reverse': reverse }]} aria-hidden="true">
+  <div class="ticker-track">
+    {
+      [0, 1].map(() => (
+        <div class="ticker-group">
+          {items.map((item) => (
+            <span class="ticker-item">
+              {item}
+              <Icon name="spark" size={14} />
+            </span>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</div>

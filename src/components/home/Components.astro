@@ -1,0 +1,77 @@
+---
+import Icon from '../Icon.astro';
+import CategoryCard from '../CategoryCard.astro';
+import { panels, categories } from '../../data/site';
+
+const first = panels[0];
+---
+
+<section class="section light components" id="floor-6" data-floor="6" data-floor-name="Components">
+  <div class="wide">
+    <div class="section-head" data-reveal>
+      <div>
+        <div class="eyebrow"><span class="floor-tag">06</span> Products & accessories</div>
+        <h2>Every touch. <em>Thoughtfully considered.</em></h2>
+      </div>
+      <p>Pick a finish to preview the operating panel — then explore the components behind a smooth ride.</p>
+    </div>
+
+    <div class="panel-showcase" data-panel-showcase>
+      <div class="panel-stage" data-reveal>
+        <span class="panel-halo" aria-hidden="true"></span>
+        {
+          panels.map((p, i) => (
+            <img
+              class:list={['panel-image', { 'is-active': i === 0 }]}
+              src={`/images/products/panel-${p.id}.webp`}
+              alt={`${p.title} cabin and landing operating panel`}
+              data-panel-image={p.slug}
+              width="700"
+              height="1000"
+              loading="lazy"
+            />
+          ))
+        }
+        <span class="panel-label" data-panel-label>{first.title}</span>
+      </div>
+      <div class="panel-picker">
+        <p class="panel-picker-title">Select a finish</p>
+        <div class="panel-options" role="radiogroup" aria-label="Operating panel finishes">
+          {
+            panels.map((p, i) => (
+              <button
+                class="panel-option"
+                role="radio"
+                aria-checked={i === 0 ? 'true' : 'false'}
+                data-panel={p.slug}
+                data-title={p.title}
+                data-finish={p.finish}
+              >
+                <span class:list={['swatch', `swatch-${p.slug}`]} aria-hidden="true" />
+                <span>
+                  <strong>{p.title}</strong>
+                  <small>{p.finish}</small>
+                </span>
+              </button>
+            ))
+          }
+        </div>
+        <div class="panel-actions">
+          <a class="btn" href={`/products/${first.slug}/`} data-panel-link>
+            <span>View {first.title} panel</span>
+            <Icon size={16} />
+          </a>
+          <a class="text-link" href="/products/cabin-panels/">All operating panels <Icon size={16} /></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-head" data-reveal>
+      <h3>Components with purpose</h3>
+      <a class="text-link" href="/products/">All products <Icon size={16} /></a>
+    </div>
+    <div class="category-grid">
+      {categories.map((c, i) => <CategoryCard category={c} index={i} />)}
+    </div>
+  </div>
+</section>

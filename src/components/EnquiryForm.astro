@@ -1,0 +1,120 @@
+---
+import Icon from './Icon.astro';
+const interest = Astro.url.searchParams.get('interest') || '';
+---
+
+<form class="enquiry-form" id="enquiry-form">
+  <div class="form-grid">
+    <label>
+      Your name <span>*</span>
+      <input
+        name="name"
+        autocomplete="name"
+        required
+        maxlength="100"
+        placeholder="Full name"
+      />
+    </label>
+    <label>
+      Company
+      <input
+        name="company"
+        autocomplete="organization"
+        maxlength="120"
+        placeholder="Company or organisation"
+      />
+    </label>
+    <label>
+      Email address <span>*</span>
+      <input
+        name="email"
+        type="email"
+        autocomplete="email"
+        required
+        maxlength="160"
+        placeholder="you@example.com"
+      />
+    </label>
+    <label>
+      Phone number <span>*</span>
+      <input
+        name="phone"
+        type="tel"
+        autocomplete="tel"
+        required
+        minlength="7"
+        maxlength="25"
+        placeholder="Your contact number"
+      />
+    </label>
+    <label>
+      Building type <span>*</span>
+      <select name="building" required>
+        <option value="">Select building type</option>
+        {[
+          'Residential',
+          'Commercial',
+          'Hospital / Healthcare',
+          'Hotel / Hospitality',
+          'Industrial',
+          'Shopping mall',
+          'Educational institution',
+          'Other',
+        ].map((x) => (
+          <option>{x}</option>
+        ))}
+      </select>
+    </label>
+    <label>
+      Interested in
+      <select name="interest">
+        <option value="">Select a solution</option>
+        {[
+          'New elevator',
+          'Cabin design',
+          'Operating panels',
+          'Installation',
+          'Modernization',
+          'Maintenance',
+          'AMC Support',
+          'Technical consultation',
+        ].map((x) => (
+          <option selected={interest === x}>{x}</option>
+        ))}
+      </select>
+    </label>
+    <label class="full">
+      Tell us about your project <span>*</span>
+      <textarea
+        name="message"
+        required
+        maxlength="3000"
+        rows="5"
+        placeholder="Location, number of floors, your requirements, or anything you’d like us to know."
+      ></textarea>
+    </label>
+  </div>
+  <p class="form-note">
+    Your enquiry is prepared as an email draft. You review and send it from your
+    email app. <a href="/privacy-policy/">Privacy policy</a>
+  </p>
+  <button class="btn" type="submit">
+    <span>Prepare my enquiry</span><Icon size={16} />
+  </button>
+  <div class="enquiry-result" hidden role="status">
+    <h3>Your enquiry is ready to review.</h3>
+    <p>
+      Open your email app to send it to sales@bkelevator.in, or copy the details
+      and email them directly.
+    </p>
+    <div class="button-row">
+      <a class="btn" id="draft-link" href="mailto:sales@bkelevator.in">
+        <span>Open email draft</span><Icon name="mail" size={16} />
+      </a>
+      <button class="btn btn-outline btn-dark-text" id="copy-enquiry" type="button">
+        <span>Copy enquiry</span><Icon name="check" size={16} />
+      </button>
+    </div>
+    <p id="copy-status" aria-live="polite"></p>
+  </div>
+</form>

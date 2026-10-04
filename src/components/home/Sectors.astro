@@ -1,0 +1,53 @@
+---
+import Icon from '../Icon.astro';
+import { sectors } from '../../data/site';
+---
+
+<section class="section light sectors" id="floor-9" data-floor="9" data-floor-name="Your spaces">
+  <div class="wide">
+    <div class="section-head" data-reveal>
+      <div>
+        <div class="eyebrow"><span class="floor-tag">09</span> Spaces we elevate</div>
+        <h2>Different spaces. <em>One higher standard.</em></h2>
+      </div>
+      <p>From everyday living to busy public buildings — choose your space and start a tailored enquiry.</p>
+    </div>
+    <div class="sector-grid">
+      {
+        sectors.map((s, i) => (
+          <a
+            class:list={['sector-card card-hover', { 'has-image': s.image }]}
+            href={`/enquiry/?building=${encodeURIComponent(s.name)}`}
+            data-reveal
+            style={`--i:${i % 4}`}
+          >
+            {s.image && <img src={s.image} alt="" loading="lazy" width="1024" height="1024" />}
+            <span class="sector-fill" aria-hidden="true" />
+            <span class="sector-icon">
+              <Icon name={s.icon} size={30} />
+            </span>
+            <span class="sector-text">
+              <strong>{s.name}</strong>
+              <span>{s.line}</span>
+            </span>
+            <span class="sector-arrow">
+              <Icon size={16} />
+            </span>
+          </a>
+        ))
+      }
+      <a class="sector-card sector-cta card-hover" href="/contact/" data-reveal style="--i:3">
+        <span class="sector-icon">
+          <Icon name="support" size={30} />
+        </span>
+        <span class="sector-text">
+          <strong>Something else?</strong>
+          <span>Talk to our team about your building.</span>
+        </span>
+        <span class="sector-arrow">
+          <Icon size={16} />
+        </span>
+      </a>
+    </div>
+  </div>
+</section>

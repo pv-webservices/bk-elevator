@@ -1,0 +1,20 @@
+---
+interface Props {
+  size?: 'default' | 'large';
+}
+const { size = 'default' } = Astro.props;
+---
+
+<a class:list={['brand', `brand-${size}`]} href="/" aria-label="Bk Elevator Pvt. Ltd home">
+  <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+    <rect class="brand-mark-bg" width="64" height="64" rx="16"></rect>
+    <path
+      d="M17 46V18h17c11 0 11 12 2 13.5 11 1 10 14.5-1 14.5H17Zm8-17h8c3.6 0 3.6-4 0-4h-8v4Zm0 10h9c3.6 0 3.6-4.6 0-4.6h-9V39Z"
+      fill="currentColor"></path>
+    <path d="m37 44 12-17h7.5L44 44l12.5 12H47L37 44Z" fill="#efa72e"></path>
+  </svg>
+  <span class="brand-words">
+    <strong>BK ELEVATOR</strong>
+    <small>PVT. LTD · ELEVATING EVERY SPACE</small>
+  </span>
+</a>

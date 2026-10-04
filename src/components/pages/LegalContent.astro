@@ -1,0 +1,74 @@
+---
+import { company } from '../../data/site';
+
+interface Props {
+  kind: string;
+}
+const { kind: pageKind } = Astro.props;
+const page = { kind: pageKind };
+---
+
+<section class="section light">
+  <div class="wide legal-copy" data-reveal>
+        {page.kind === 'privacy' ? (
+          <>
+            <h2>Information you choose to share</h2>
+            <p>
+              The enquiry form prepares an email draft using the details you
+              enter. It does not submit or store those details on this website.
+              Your email app handles the message when you choose to send it.
+            </p>
+            <h2>How your enquiry is used</h2>
+            <p>
+              Information emailed to our team is used to respond to your enquiry
+              and discuss your requirements. Avoid including sensitive personal
+              information in a general project enquiry.
+            </p>
+            <h2>Cookies and external services</h2>
+            <p>
+              This website does not include analytics, advertising trackers or
+              account cookies. Videos and fonts are served from the website.
+              External map links and your email provider have their own privacy
+              practices.
+            </p>
+            <h2>Contact about your information</h2>
+            <p>
+              For questions about information you have shared, email{' '}
+              <a href={`mailto:${company.email}`}>{company.email}</a>.
+            </p>
+          </>
+        ) : (
+          <>
+            <h2>Collection and imagery</h2>
+            <p>
+              Cabin labels describe visual styles in the supplied collection and
+              are not manufacturer model identifiers. Images and videos
+              illustrate the shown designs and components. Final finishes,
+              dimensions, specifications and availability are confirmed for each
+              enquiry.
+            </p>
+            <h2>Technical information</h2>
+            <p>
+              Technical images and descriptions are for general orientation.
+              They do not replace a site survey, engineering review or
+              project-specific design. Suitability and applicable requirements
+              must be reviewed for the intended installation.
+            </p>
+            <h2>Brands and on-site footage</h2>
+            <p>
+              Component brand names identify relevant technologies and
+              categories. No exclusive or authorised distribution status is
+              implied. On-site footage is presented without unverified customer,
+              project or location claims.
+            </p>
+            <h2>Enquiries and quotations</h2>
+            <p>
+              Information on this website is an invitation to discuss your
+              requirements. A submitted email enquiry is not an order or
+              contractual commitment. Pricing, scope, service arrangements and
+              delivery are agreed separately.
+            </p>
+          </>
+        )}
+  </div>
+</section>

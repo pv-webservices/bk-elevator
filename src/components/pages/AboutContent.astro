@@ -1,0 +1,97 @@
+---
+import Icon from '../Icon.astro';
+import Ticker from '../Ticker.astro';
+import { stats, cabins, cabinSrcset } from '../../data/site';
+
+const principles = [
+  ['01', 'Purposeful design', 'Interiors and interfaces considered around your building and its users.', 'diamond'],
+  ['02', 'System thinking', 'Components selected together, with attention to the complete installation.', 'gear'],
+  ['03', 'Lasting care', 'A relationship that continues through maintenance, upgrades and support.', 'shield'],
+  ['04', 'Clear conversations', 'Honest guidance on finishes, compatibility, scope and service.', 'support'],
+];
+const gallery = [8, 3, 6, 9].map((id) => cabins.find((c) => c.id === id)!);
+---
+
+<section class="section light">
+  <div class="wide editorial-split">
+    <div data-reveal>
+      <div class="eyebrow">Our approach</div>
+      <h2>Elevating spaces. <em>Connecting people.</em></h2>
+    </div>
+    <div data-reveal style="--i:1">
+      <p class="lead">
+        An elevator is part of the way a building lives. We bring its design, engineering and service needs into one
+        considered conversation.
+      </p>
+      <p>
+        From cabin finishes and component selection to installation and ongoing care, Bk Elevator Pvt. Ltd helps you
+        shape a solution around your space and the people who use it — based in Nagpur, Maharashtra.
+      </p>
+      <dl class="stat-row">
+        {
+          stats.map((s) => (
+            <div>
+              <dt data-count={s.value}>{s.value}</dt>
+              <dd>{s.label}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </div>
+</section>
+<Ticker items={['Design', 'Engineering', 'Installation', 'Modernization', 'Maintenance', 'AMC support']} />
+<section class="section">
+  <div class="wide">
+    <div class="section-head" data-reveal>
+      <div>
+        <div class="eyebrow">What guides us</div>
+        <h2>Four promises. <em>Every level.</em></h2>
+      </div>
+      <a class="text-link" href="/services/">Explore how we work <Icon size={18} /></a>
+    </div>
+    <div class="principle-grid">
+      {
+        principles.map(([n, t, d, icon], i) => (
+          <article class="feature-card card-hover" data-reveal style={`--i:${i}`} data-tilt>
+            <span class="feature-icon">
+              <Icon name={icon} size={24} />
+            </span>
+            <small>{n}</small>
+            <h3>{t}</h3>
+            <p>{d}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+<section class="section light">
+  <div class="wide">
+    <div class="section-head" data-reveal>
+      <div>
+        <div class="eyebrow">Design that speaks</div>
+        <h2>Interiors people <em>remember.</em></h2>
+      </div>
+      <a class="text-link" href="/cabin-designs/">The full collection <Icon size={18} /></a>
+    </div>
+    <div class="mosaic">
+      {
+        gallery.map((c, i) => (
+          <a class="mosaic-item card-hover" href="/cabin-designs/" data-reveal style={`--i:${i}`}>
+            <img
+              src={`/images/cabins/cabin-${c.id}-720.webp`}
+              srcset={cabinSrcset(c.id)}
+              sizes="(max-width: 700px) 50vw, 25vw"
+              alt={`${c.title} cabin interior`}
+              loading="lazy"
+              width="1000"
+              height="1400"
+            />
+            <span>{c.title}</span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

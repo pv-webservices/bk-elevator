@@ -1,0 +1,106 @@
+---
+import Icon from '../Icon.astro';
+import { services, type PageInfo } from '../../data/site';
+
+interface Props {
+  page: PageInfo;
+}
+const { page } = Astro.props;
+const single = page.kind === 'service';
+const others = services.filter((s) => !page.slug.endsWith(s.slug));
+---
+
+{
+  !single && (
+    <section class="section">
+      <div class="wide">
+        <div class="section-head" data-reveal>
+          <div>
+            <div class="eyebrow">Care at every level</div>
+            <h2>
+              Four ways we <em>keep you moving.</em>
+            </h2>
+          </div>
+          <p>Choose a service to see how it works, step by step.</p>
+        </div>
+        <div class="service-grid">
+          {services.map((s, i) => (
+            <a href={`/services/${s.slug}/`} class="service-card card-hover" data-reveal style={`--i:${i}`} data-tilt>
+              <span class="service-index">0{i + 1}</span>
+              <span class="service-icon">
+                <Icon name={s.icon} size={28} />
+              </span>
+              <h3>{s.title}</h3>
+              <p>{s.desc}</p>
+              <span class="service-more">
+                Explore the service <Icon size={16} />
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+{
+  single && (
+    <>
+      <section class="section light">
+        <div class="wide editorial-split">
+          <div data-reveal>
+            <div class="eyebrow">Your building. Our attention.</div>
+            <h2>
+              Support for <em>your next step.</em>
+            </h2>
+          </div>
+          <div data-reveal style="--i:1">
+            <p class="lead">{page.body}</p>
+            <a class="btn" href={`/enquiry/?interest=${encodeURIComponent(page.title === 'AMC Support' ? 'AMC Support' : page.title)}`}>
+              <span>Speak to our service team</span>
+              <Icon size={16} />
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="wide">
+          <div class="eyebrow">The service journey</div>
+          <div class="service-path">
+            {page.points?.map((p, i) => (
+              <article class="path-step card-hover" data-reveal style={`--i:${i}`}>
+                <span class="path-floor">
+                  <small>Floor</small>0{i + 1}
+                </span>
+                <h3>{p}</h3>
+              </article>
+            ))}
+          </div>
+          <p class="note" data-reveal>
+            Service scope and arrangements are confirmed for your installation. Share the elevator type, building location
+            and current requirements when enquiring.
+          </p>
+          <div class="sub-head sub-head-dark">
+            <h3>Other services</h3>
+            <a class="text-link" href="/services/">
+              All services <Icon size={16} />
+            </a>
+          </div>
+          <div class="link-grid">
+            {others.map((s, i) => (
+              <a href={`/services/${s.slug}/`} class="link-card card-hover" data-reveal style={`--i:${i}`}>
+                <span class="feature-icon">
+                  <Icon name={s.icon} size={22} />
+                </span>
+                <span>
+                  <small>Service</small>
+                  <strong>{s.title}</strong>
+                </span>
+                <Icon size={18} />
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  )
+}

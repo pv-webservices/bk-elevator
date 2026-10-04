@@ -1,0 +1,21 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  category: { slug: string; title: string; image: string; desc: string; brand: string };
+  index: number;
+}
+const { category, index } = Astro.props;
+---
+
+<a href={`/products/${category.slug}/`} class="category-card card-hover" data-reveal style={`--i:${index % 4}`}>
+  <span class="category-media">
+    <img src={category.image} alt={category.title} loading="lazy" width="700" height="800" />
+  </span>
+  <span class="category-body">
+    <small>{category.brand}</small>
+    <strong>{category.title}</strong>
+    <span>{category.desc}</span>
+  </span>
+  <span class="category-arrow"><Icon size={18} /></span>
+</a>

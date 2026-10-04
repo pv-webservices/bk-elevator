@@ -1,0 +1,505 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - generic [ref=e4]:
+    - generic [ref=e5]: Nagpur, Maharashtra
+    - generic [ref=e8]:
+      - link "info@bkelevator.in" [ref=e9] [cursor=pointer]:
+        - /url: mailto:info@bkelevator.in
+      - link "+91 9579048849" [ref=e12] [cursor=pointer]:
+        - /url: tel:+919579048849
+  - banner [ref=e15]:
+    - generic [ref=e16]:
+      - link "Bk Elevator Pvt. Ltd home" [ref=e17] [cursor=pointer]:
+        - /url: /
+        - generic [aria-hidden] [ref=e18]:
+          - generic [ref=e19]: B
+          - generic [ref=e20]: K
+        - generic [ref=e22]:
+          - strong [ref=e23]:
+            - text: BK ELEVATOR
+            - generic [ref=e24]: PVT. LTD
+          - generic [ref=e25]: ELEVATING EVERY SPACE
+      - link "Get a quote" [ref=e26] [cursor=pointer]:
+        - /url: /enquiry/
+      - button "Open menu" [ref=e29] [cursor=pointer]
+  - main [ref=e32]:
+    - complementary "Homepage floors" [ref=e33]:
+      - generic [aria-hidden] [ref=e34]: ↑
+      - generic [aria-hidden] [ref=e35]: "01"
+      - generic [ref=e36]: FLOOR
+      - generic [ref=e37]:
+        - 'link "Floor 01: Welcome" [ref=e38] [cursor=pointer]':
+          - /url: "#floor-1"
+          - generic: Welcome
+        - 'link "Floor 02: Our journey" [ref=e40] [cursor=pointer]':
+          - /url: "#floor-2"
+          - generic: Our journey
+        - 'link "Floor 03: Cabin collection" [ref=e42] [cursor=pointer]':
+          - /url: "#floor-3"
+          - generic: Cabin collection
+        - 'link "Floor 04: In motion" [ref=e44] [cursor=pointer]':
+          - /url: "#floor-4"
+          - generic: In motion
+        - 'link "Floor 05: Engineering" [ref=e46] [cursor=pointer]':
+          - /url: "#floor-5"
+          - generic: Engineering
+        - 'link "Floor 06: Components" [ref=e48] [cursor=pointer]':
+          - /url: "#floor-6"
+          - generic: Components
+        - 'link "Floor 07: Our connections" [ref=e50] [cursor=pointer]':
+          - /url: "#floor-7"
+          - generic: Our connections
+        - 'link "Floor 08: On-site gallery" [ref=e52] [cursor=pointer]':
+          - /url: "#floor-8"
+          - generic: On-site gallery
+        - 'link "Floor 09: Your spaces" [ref=e54] [cursor=pointer]':
+          - /url: "#floor-9"
+          - generic: Your spaces
+        - 'link "Floor 10: Your next level" [ref=e56] [cursor=pointer]':
+          - /url: "#floor-10"
+          - generic: Your next level
+      - generic [aria-hidden] [ref=e58]: ↓
+    - generic [ref=e59]:
+      - generic [ref=e61]:
+        - generic [ref=e62]:
+          - generic [ref=e63]: A HIGHER STANDARD OF LIVING
+          - heading [level=1] [ref=e65]:
+            - text: WE ELEVATE
+            - emphasis [ref=e66]: YOUR WORLD.
+          - paragraph [ref=e67]: Premium elevators. Thoughtful engineering.Extraordinary journeys, every day.
+          - generic [ref=e68]:
+            - link "Explore your possibilities" [ref=e69] [cursor=pointer]:
+              - /url: /enquiry/
+            - button [ref=e72] [cursor=pointer]
+          - generic [ref=e76]:
+            - text: DESIGNED TO INSPIRE
+            - paragraph [ref=e77]: Luxury in the details.Confidence in every ride.
+        - generic [ref=e78]:
+          - img "Gold geometric elevator cabin with mirrored walls, patterned panels and a decorative stone floor" [ref=e79]
+          - generic [ref=e80]:
+            - generic [ref=e82]: GEOMETRIC GOLDTHE CABIN COLLECTION
+            - link "Explore the cabin collection" [ref=e83] [cursor=pointer]:
+              - /url: /cabin-designs/
+      - generic [ref=e86]:
+        - link [ref=e87] [cursor=pointer]:
+          - /url: "#floor-2"
+        - generic [ref=e91]:
+          - text: "01"
+          - generic [ref=e92]: / 10
+          - text: THE WELCOME FLOOR
+    - generic [ref=e95]:
+      - generic [ref=e96]: Premium cabin designs
+      - generic [ref=e100]: Safety at every level
+      - generic [ref=e104]: Modern technology
+      - generic [ref=e108]: End-to-end support
+    - generic [ref=e113]:
+      - generic [ref=e114]:
+        - generic [ref=e115]:
+          - generic [ref=e116]:
+            - generic [ref=e117]: "02"
+            - text: THE BK ELEVATOR JOURNEY
+          - heading [level=2] [ref=e118]:
+            - text: From your vision.
+            - emphasis [ref=e119]: To vertical reality.
+        - generic [ref=e120]:
+          - paragraph [ref=e121]: One partner. Every step.A complete journey, built around you.
+          - link "Discover our approach" [ref=e122] [cursor=pointer]:
+            - /url: /about/
+      - generic [ref=e125]:
+        - link "01 DESIGN design — Imagine Imagine Your space. Your vision. Every detail considered." [ref=e126] [cursor=pointer]:
+          - /url: /cabin-designs/
+          - generic [ref=e127]:
+            - generic [ref=e128]: "01"
+            - generic [ref=e129]: DESIGN
+          - img "design — Imagine" [ref=e131]
+          - heading "Imagine" [level=3] [ref=e135]
+          - paragraph [ref=e136]: Your space. Your vision. Every detail considered.
+        - link "02 ENGINEERING engineering — Engineer Engineer The right systems, working beautifully together." [ref=e137] [cursor=pointer]:
+          - /url: /technical/
+          - generic [ref=e138]:
+            - generic [ref=e139]: "02"
+            - generic [ref=e140]: ENGINEERING
+          - img "engineering — Engineer" [ref=e142]
+          - heading "Engineer" [level=3] [ref=e146]
+          - paragraph [ref=e147]: The right systems, working beautifully together.
+        - link "03 INSTALLATION installation — Bring to life Bring to life Precision on site. From planning to handover." [ref=e148] [cursor=pointer]:
+          - /url: /services/installation/
+          - generic [ref=e149]:
+            - generic [ref=e150]: "03"
+            - generic [ref=e151]: INSTALLATION
+          - img "installation — Bring to life" [ref=e153]
+          - heading "Bring to life" [level=3] [ref=e157]
+          - paragraph [ref=e158]: Precision on site. From planning to handover.
+        - link "04 SUPPORT support — Keep moving Keep moving Care that continues long after the first ride." [ref=e159] [cursor=pointer]:
+          - /url: /services/amc/
+          - generic [ref=e160]:
+            - generic [ref=e161]: "04"
+            - generic [ref=e162]: SUPPORT
+          - img "support — Keep moving" [ref=e164]
+          - heading "Keep moving" [level=3] [ref=e168]
+          - paragraph [ref=e169]: Care that continues long after the first ride.
+    - generic [ref=e171]:
+      - generic [ref=e172]:
+        - generic [ref=e173]:
+          - generic [ref=e174]:
+            - generic [ref=e175]: "03"
+            - text: THE CABIN COLLECTION
+          - heading [level=2] [ref=e176]:
+            - text: An everyday journey.
+            - emphasis [ref=e177]: An exceptional space.
+        - generic [ref=e178]:
+          - paragraph [ref=e179]: Refined surfaces. Beautiful reflections.Interiors that feel unmistakably yours.
+          - link "Explore all designs" [ref=e180] [cursor=pointer]:
+            - /url: /cabin-designs/
+      - generic [ref=e183]:
+        - generic [ref=e184]:
+          - article [ref=e185]:
+            - button "Enlarge Geometric Gold cabin" [ref=e186] [cursor=pointer]:
+              - img "Geometric Gold elevator interior — Warm metallic · Patterned walls" [ref=e187]
+              - generic [ref=e188]: "01"
+            - generic [ref=e192]:
+              - generic [ref=e193]:
+                - heading "Geometric Gold" [level=3] [ref=e194]
+                - paragraph [ref=e195]: Warm metallic · Patterned walls
+              - link "Enquire about Geometric Gold" [ref=e196] [cursor=pointer]:
+                - /url: /enquiry/?interest=Cabin%20design&design=Geometric%20Gold
+          - article [ref=e199]:
+            - button "Enlarge Reflective Silver cabin" [ref=e200] [cursor=pointer]:
+              - img "Reflective Silver elevator interior — Mirror finish · Decorative detailing" [ref=e201]
+              - generic [ref=e202]: "02"
+            - generic [ref=e206]:
+              - generic [ref=e207]:
+                - heading "Reflective Silver" [level=3] [ref=e208]
+                - paragraph [ref=e209]: Mirror finish · Decorative detailing
+              - link "Enquire about Reflective Silver" [ref=e210] [cursor=pointer]:
+                - /url: /enquiry/?interest=Cabin%20design&design=Reflective%20Silver
+          - article [ref=e213]:
+            - button "Enlarge Architectural Gold cabin" [ref=e214] [cursor=pointer]:
+              - img "Architectural Gold elevator interior — Vertical lines · Dark stone floor" [ref=e215]
+              - generic [ref=e216]: "03"
+            - generic [ref=e220]:
+              - generic [ref=e221]:
+                - heading "Architectural Gold" [level=3] [ref=e222]
+                - paragraph [ref=e223]: Vertical lines · Dark stone floor
+              - link "Enquire about Architectural Gold" [ref=e224] [cursor=pointer]:
+                - /url: /enquiry/?interest=Cabin%20design&design=Architectural%20Gold
+          - article [ref=e227]:
+            - button "Enlarge Linear Elegance cabin" [ref=e228] [cursor=pointer]:
+              - img "Linear Elegance elevator interior — Gold accents · Architectural lines" [ref=e229]
+              - generic [ref=e230]: "04"
+            - generic [ref=e234]:
+              - generic [ref=e235]:
+                - heading "Linear Elegance" [level=3] [ref=e236]
+                - paragraph [ref=e237]: Gold accents · Architectural lines
+              - link "Enquire about Linear Elegance" [ref=e238] [cursor=pointer]:
+                - /url: /enquiry/?interest=Cabin%20design&design=Linear%20Elegance
+          - article [ref=e241]:
+            - button "Enlarge Artistic Geometry cabin" [ref=e242] [cursor=pointer]:
+              - img "Artistic Geometry elevator interior — Patterned surfaces · Warm tones" [ref=e243]
+              - generic [ref=e244]: "05"
+            - generic [ref=e248]:
+              - generic [ref=e249]:
+                - heading "Artistic Geometry" [level=3] [ref=e250]
+                - paragraph [ref=e251]: Patterned surfaces · Warm tones
+              - link "Enquire about Artistic Geometry" [ref=e252] [cursor=pointer]:
+                - /url: /enquiry/?interest=Cabin%20design&design=Artistic%20Geometry
+          - article [ref=e255]:
+            - button "Enlarge Contemporary Black cabin" [ref=e256] [cursor=pointer]:
+              - img "Contemporary Black elevator interior — Dark mirror · Expressive flooring" [ref=e257]
+              - generic [ref=e258]: "06"
+            - generic [ref=e262]:
+              - generic [ref=e263]:
+                - heading "Contemporary Black" [level=3] [ref=e264]
+                - paragraph [ref=e265]: Dark mirror · Expressive flooring
+              - link "Enquire about Contemporary Black" [ref=e266] [cursor=pointer]:
+                - /url: /enquiry/?interest=Cabin%20design&design=Contemporary%20Black
+        - generic [aria-hidden]:
+          - generic: "03"
+        - generic [aria-hidden]:
+          - generic: ↑
+      - generic [ref=e269]:
+        - generic [ref=e270]: YOUR SPACE. YOUR SIGNATURE.
+        - generic [ref=e271]:
+          - generic [ref=e272]: 01 — 06
+          - button "Previous cabin designs" [ref=e273] [cursor=pointer]
+          - button "Next cabin designs" [ref=e276] [cursor=pointer]
+    - generic [ref=e280]:
+      - generic [ref=e281]:
+        - generic [ref=e282]:
+          - generic [ref=e283]:
+            - generic [ref=e284]: "04"
+            - text: ELEVATION IN MOTION
+          - heading [level=2] [ref=e285]:
+            - text: Step inside.
+            - emphasis [ref=e286]: See the difference.
+        - link "View the video collection" [ref=e287] [cursor=pointer]:
+          - /url: /videos/
+      - generic [ref=e290]:
+        - button "Inside the gold cabin Cabin walkthrough Inside the gold cabin" [ref=e291] [cursor=pointer]:
+          - generic [ref=e292]:
+            - img "Inside the gold cabin" [ref=e293]
+            - generic [ref=e297]: Cabin walkthrough
+          - generic [ref=e298]: Inside the gold cabin
+        - button "A closer look at silver Interior details A closer look at silver" [ref=e301] [cursor=pointer]:
+          - generic [ref=e302]:
+            - img "A closer look at silver" [ref=e303]
+            - generic [ref=e307]: Interior details
+          - generic [ref=e308]: A closer look at silver
+        - button "Doors in motion On-site footage Doors in motion" [ref=e311] [cursor=pointer]:
+          - generic [ref=e312]:
+            - img "Doors in motion" [ref=e313]
+            - generic [ref=e317]: On-site footage
+          - generic [ref=e318]: Doors in motion
+      - generic [ref=e321]: A closer look at the spaces, finishes and movement behind every ride.
+    - generic [ref=e323]:
+      - img "Elevator technician working within the lift shaft and guide rail system" [ref=e324]
+      - generic [ref=e325]:
+        - generic [ref=e326]:
+          - generic [ref=e327]:
+            - generic [ref=e328]: "05"
+            - text: THE INTELLIGENCE WITHIN
+          - heading [level=2] [ref=e329]:
+            - text: Beautifully designed.
+            - emphasis [ref=e330]: Preciselyengineered.
+          - paragraph [ref=e331]: Behind every effortless journey is a systembuilt with purpose. And people who care.
+          - link "Explore our engineering" [ref=e332] [cursor=pointer]:
+            - /url: /technical/
+        - generic [ref=e335]:
+          - link "01 Installation" [ref=e336] [cursor=pointer]:
+            - /url: /services/installation/
+            - generic [ref=e337]: "01"
+            - heading "Installation" [level=3] [ref=e340]
+          - link "02 Modernization" [ref=e341] [cursor=pointer]:
+            - /url: /services/modernization/
+            - generic [ref=e342]: "02"
+            - heading "Modernization" [level=3] [ref=e345]
+          - link "03 Maintenance" [ref=e346] [cursor=pointer]:
+            - /url: /services/maintenance/
+            - generic [ref=e347]: "03"
+            - heading "Maintenance" [level=3] [ref=e350]
+          - link "04 AMC Support" [ref=e351] [cursor=pointer]:
+            - /url: /services/amc/
+            - generic [ref=e352]: "04"
+            - heading "AMC Support" [level=3] [ref=e355]
+    - generic [ref=e357]:
+      - generic [ref=e358]:
+        - generic [ref=e359]:
+          - generic [ref=e360]:
+            - generic [ref=e361]: "06"
+            - text: PRODUCTS & ACCESSORIES
+          - heading [level=2] [ref=e362]:
+            - text: Every touch.
+            - emphasis [ref=e363]: Thoughtfully considered.
+        - generic [ref=e364]:
+          - paragraph [ref=e365]: Modern controls. Distinctive finishes.Details that complete the experience.
+          - link "Explore the components" [ref=e366] [cursor=pointer]:
+            - /url: /products/
+      - generic [ref=e369]:
+        - link [ref=e370] [cursor=pointer]:
+          - /url: /products/black-shine-panel/
+          - img "Black Shine cabin and landing operating panel" [ref=e372]
+          - heading "Black Shine" [level=3] [ref=e376]
+          - paragraph [ref=e377]: Reflective black finish
+        - link [ref=e378] [cursor=pointer]:
+          - /url: /products/rose-gold-panel/
+          - img "Rose Gold cabin and landing operating panel" [ref=e380]
+          - heading "Rose Gold" [level=3] [ref=e384]
+          - paragraph [ref=e385]: Warm metallic finish
+        - link [ref=e386] [cursor=pointer]:
+          - /url: /products/silver-panel/
+          - img "Silver cabin and landing operating panel" [ref=e388]
+          - heading "Silver" [level=3] [ref=e392]
+          - paragraph [ref=e393]: Clean stainless-steel look
+        - link [ref=e394] [cursor=pointer]:
+          - /url: /products/black-mat-panel/
+          - img "Black Mat cabin and landing operating panel" [ref=e396]
+          - heading "Black Mat" [level=3] [ref=e400]
+          - paragraph [ref=e401]: Understated dark finish
+        - link [ref=e402] [cursor=pointer]:
+          - /url: /products/silver-mat-panel/
+          - img "Silver Mat cabin and landing operating panel" [ref=e404]
+          - heading "Silver Mat" [level=3] [ref=e408]
+          - paragraph [ref=e409]: Soft metallic finish
+      - generic [ref=e410]:
+        - generic [ref=e411]: A SMARTER RIDE STARTS WITH THE DETAILS.
+        - generic [ref=e412]:
+          - button "Previous operating panels" [ref=e413] [cursor=pointer]
+          - button "Next operating panels" [ref=e416] [cursor=pointer]
+    - generic [ref=e420]:
+      - generic [ref=e421]:
+        - generic [ref=e422]:
+          - generic [ref=e423]:
+            - generic [ref=e424]: "07"
+            - text: OUR GLOBAL CONNECTIONS
+          - heading [level=2] [ref=e425]:
+            - text: Great journeys.
+            - emphasis [ref=e426]: Built together.
+        - generic [ref=e427]:
+          - paragraph [ref=e428]: Technologies and componentsfrom leading industry brands.
+          - link "Explore the connections" [ref=e429] [cursor=pointer]:
+            - /url: /partners/
+      - generic [ref=e432]:
+        - link "Fermator Automatic lift doors" [ref=e433] [cursor=pointer]:
+          - /url: /partners/
+          - strong [ref=e434]: Fermator
+          - generic [ref=e435]: Automatic lift doors
+        - link "Montanari Lift gearboxes" [ref=e436] [cursor=pointer]:
+          - /url: /partners/
+          - strong [ref=e437]: Montanari
+          - generic [ref=e438]: Lift gearboxes
+        - link "Wittur Elevator doors" [ref=e439] [cursor=pointer]:
+          - /url: /partners/
+          - strong [ref=e440]: Wittur
+          - generic [ref=e441]: Elevator doors
+        - link "Inditech Electrical panels" [ref=e442] [cursor=pointer]:
+          - /url: /partners/
+          - strong [ref=e443]: Inditech
+          - generic [ref=e444]: Electrical panels
+        - link "Usha Martin Wire ropes" [ref=e445] [cursor=pointer]:
+          - /url: /partners/
+          - strong [ref=e446]: Usha Martin
+          - generic [ref=e447]: Wire ropes
+        - link "Marazzi Guide rails" [ref=e448] [cursor=pointer]:
+          - /url: /partners/
+          - strong [ref=e449]: Marazzi
+          - generic [ref=e450]: Guide rails
+        - link "Liftbyte Touch panels" [ref=e451] [cursor=pointer]:
+          - /url: /partners/
+          - strong [ref=e452]: Liftbyte
+          - generic [ref=e453]: Touch panels
+    - generic [ref=e455]:
+      - generic [ref=e456]:
+        - generic [ref=e457]:
+          - generic [ref=e458]:
+            - generic [ref=e459]: "08"
+            - text: FROM DESIGN TO REALITY
+          - heading [level=2] [ref=e460]:
+            - text: Real spaces.
+            - emphasis [ref=e461]: Real possibilities.
+        - generic [ref=e462]:
+          - paragraph [ref=e463]: See the elevator experiencebeyond the drawing board.
+          - link "Explore our on-site gallery" [ref=e464] [cursor=pointer]:
+            - /url: /projects/
+      - generic [ref=e467]:
+        - button "Reflections in gold ON-SITE PERSPECTIVE 01 Refined interiors" [ref=e468] [cursor=pointer]:
+          - img "Reflections in gold" [ref=e469]
+          - generic [ref=e471]:
+            - generic [ref=e472]: ON-SITE PERSPECTIVE 01
+            - strong [ref=e473]: Refined interiors
+        - button "Doors in motion ON-SITE PERSPECTIVE 02 Precision in motion" [ref=e477] [cursor=pointer]:
+          - img "Doors in motion" [ref=e478]
+          - generic [ref=e480]:
+            - generic [ref=e481]: ON-SITE PERSPECTIVE 02
+            - strong [ref=e482]: Precision in motion
+        - button "The arrival experience ON-SITE PERSPECTIVE 03 A considered arrival" [ref=e486] [cursor=pointer]:
+          - img "The arrival experience" [ref=e487]
+          - generic [ref=e489]:
+            - generic [ref=e490]: ON-SITE PERSPECTIVE 03
+            - strong [ref=e491]: A considered arrival
+    - generic [ref=e495]:
+      - generic [ref=e496]:
+        - generic [ref=e497]:
+          - generic [ref=e498]:
+            - generic [ref=e499]:
+              - generic [ref=e500]: "09"
+              - text: SPACES WE ELEVATE
+            - heading [level=2] [ref=e501]:
+              - text: Different spaces.
+              - emphasis [ref=e502]: One higher standard.
+          - paragraph [ref=e503]: From everyday living to busy public spaces.Let’s find the right solution for your building.
+        - generic [ref=e504]:
+          - link [ref=e505] [cursor=pointer]:
+            - /url: /enquiry/?building=Residential
+            - heading "Residential" [level=3] [ref=e508]
+          - link [ref=e511] [cursor=pointer]:
+            - /url: /enquiry/?building=Commercial
+            - heading "Commercial" [level=3] [ref=e514]
+          - link [ref=e517] [cursor=pointer]:
+            - /url: /enquiry/?building=Healthcare
+            - heading "Healthcare" [level=3] [ref=e520]
+          - link [ref=e523] [cursor=pointer]:
+            - /url: /enquiry/?building=Hospitality
+            - heading "Hospitality" [level=3] [ref=e526]
+          - link [ref=e529] [cursor=pointer]:
+            - /url: /enquiry/?building=Industrial
+            - heading "Industrial" [level=3] [ref=e532]
+          - link [ref=e535] [cursor=pointer]:
+            - /url: /enquiry/?building=Retail
+            - heading "Retail" [level=3] [ref=e538]
+          - link [ref=e541] [cursor=pointer]:
+            - /url: /enquiry/?building=Institutions
+            - heading "Institutions" [level=3] [ref=e544]
+      - generic [ref=e548]: ALWAYS A LEVEL ABOVE. ↑
+    - generic [ref=e550]:
+      - generic [ref=e551]:
+        - generic [ref=e552]:
+          - generic [ref=e553]: "10"
+          - text: YOUR NEXT LEVEL
+        - generic [ref=e554]:
+          - heading [level=2] [ref=e555]:
+            - text: Let’s elevate
+            - emphasis [ref=e556]: your vision.
+          - generic [ref=e557]:
+            - paragraph [ref=e558]: A new space. A smarter upgrade.A better journey begins with a conversation.
+            - generic [ref=e559]:
+              - link "Get a quote" [ref=e560] [cursor=pointer]:
+                - /url: /enquiry/
+              - link "Talk to us" [ref=e563] [cursor=pointer]:
+                - /url: tel:+919579048849
+      - generic [aria-hidden]: ↑
+  - contentinfo [ref=e566]:
+    - generic [ref=e567]:
+      - generic [ref=e568]:
+        - link "Bk Elevator Pvt. Ltd home" [ref=e569] [cursor=pointer]:
+          - /url: /
+          - generic [aria-hidden] [ref=e570]:
+            - generic [ref=e571]: B
+            - generic [ref=e572]: K
+          - generic [ref=e574]:
+            - strong [ref=e575]:
+              - text: BK ELEVATOR
+              - generic [ref=e576]: PVT. LTD
+            - generic [ref=e577]: ELEVATING EVERY SPACE
+        - paragraph [ref=e578]: Thoughtful engineering.Extraordinary journeys.
+        - link "4841/G/32, Chakrapani Nagar, Nagpur – 440015" [ref=e579] [cursor=pointer]:
+          - /url: https://www.google.com/maps/search/?api=1&query=4841%2FG%2F32%20Chakrapani%20Nagar%20Nagpur%20440015
+      - generic [ref=e582]:
+        - heading "Explore" [level=2] [ref=e583]
+        - link "Our company" [ref=e584] [cursor=pointer]:
+          - /url: /about/
+        - link "Cabin designs" [ref=e585] [cursor=pointer]:
+          - /url: /cabin-designs/
+        - link "On-site gallery" [ref=e586] [cursor=pointer]:
+          - /url: /projects/
+        - link "Video showcase" [ref=e587] [cursor=pointer]:
+          - /url: /videos/
+      - generic [ref=e588]:
+        - heading "Solutions" [level=2] [ref=e589]
+        - link "Products & accessories" [ref=e590] [cursor=pointer]:
+          - /url: /products/
+        - link "Engineering & technology" [ref=e591] [cursor=pointer]:
+          - /url: /technical/
+        - link "Installation & services" [ref=e592] [cursor=pointer]:
+          - /url: /services/
+        - link "Component brands" [ref=e593] [cursor=pointer]:
+          - /url: /partners/
+      - generic [ref=e594]:
+        - heading "Let’s connect" [level=2] [ref=e595]
+        - link "+91 9579048849" [ref=e596] [cursor=pointer]:
+          - /url: tel:+919579048849
+        - link "info@bkelevator.in" [ref=e597] [cursor=pointer]:
+          - /url: mailto:info@bkelevator.in
+        - link "sales@bkelevator.in" [ref=e598] [cursor=pointer]:
+          - /url: mailto:sales@bkelevator.in
+        - link "Start your project" [ref=e599] [cursor=pointer]:
+          - /url: /enquiry/
+    - generic [ref=e602]:
+      - generic [ref=e603]: © 2026 Bk Elevator Pvt. Ltd. All rights reserved.
+      - generic [ref=e604]:
+        - link "Privacy policy" [ref=e605] [cursor=pointer]:
+          - /url: /privacy-policy/
+        - link "Disclaimer" [ref=e606] [cursor=pointer]:
+          - /url: /terms/
+        - link "Back to top ↑" [ref=e607] [cursor=pointer]:
+          - /url: "#top"

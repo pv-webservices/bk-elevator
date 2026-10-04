@@ -1,0 +1,78 @@
+---
+import Brand from './Brand.astro';
+import Icon from './Icon.astro';
+import { company, mapUrl } from '../data/site';
+
+const columns: { title: string; links: [string, string][] }[] = [
+  {
+    title: 'Explore',
+    links: [
+      ['Our company', '/about/'],
+      ['Cabin designs', '/cabin-designs/'],
+      ['On-site gallery', '/projects/'],
+      ['Video showcase', '/videos/'],
+      ['Component brands', '/partners/'],
+    ],
+  },
+  {
+    title: 'Solutions',
+    links: [
+      ['Products & accessories', '/products/'],
+      ['Operating panels', '/products/cabin-panels/'],
+      ['Engineering & technology', '/technical/'],
+      ['Elevator mechanism', '/technical/elevator-mechanism/'],
+      ['Safety & engineering', '/technical/safety-engineering/'],
+    ],
+  },
+  {
+    title: 'Services',
+    links: [
+      ['Installation', '/services/installation/'],
+      ['Modernization', '/services/modernization/'],
+      ['Maintenance', '/services/maintenance/'],
+      ['AMC support', '/services/amc/'],
+      ['Project enquiry', '/enquiry/'],
+    ],
+  },
+];
+---
+
+<footer class="site-footer">
+  <div class="wide footer-top" data-reveal>
+    <div class="footer-intro">
+      <Brand size="large" />
+      <p>Thoughtful engineering. Extraordinary journeys. Elevators, cabins and care from Nagpur.</p>
+      <div class="footer-contact">
+        <a href={`tel:+91${company.phone}`}><Icon name="phone" size={18} /><span>+91 {company.phone}</span></a>
+        <a href={`mailto:${company.email}`}><Icon name="mail" size={18} /><span>{company.email}</span></a>
+        <a href={`mailto:${company.sales}`}><Icon name="mail" size={18} /><span>{company.sales}</span></a>
+        <a href={mapUrl} target="_blank" rel="noopener"><Icon name="location" size={18} /><span>{company.address}</span></a>
+      </div>
+    </div>
+    {
+      columns.map((col) => (
+        <div class="footer-col">
+          <h2>{col.title}</h2>
+          {col.links.map(([label, href]) => (
+            <a href={href}>{label}</a>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+  <div class="wide footer-wordmark" aria-hidden="true">
+    <span>ELEVATE</span>
+  </div>
+  <div class="wide footer-bottom">
+    <span>© {new Date().getFullYear()} {company.name}. All rights reserved.</span>
+    <div>
+      <a href="/privacy-policy/">Privacy policy</a>
+      <a href="/terms/">Disclaimer</a>
+      <a href="/sitemap.xml">Sitemap</a>
+    </div>
+    <a class="ride-top" href="#top" data-ride-top>
+      <span class="ride-top-icon"><Icon name="up" size={16} /></span>
+      Ride to the top
+    </a>
+  </div>
+</footer>

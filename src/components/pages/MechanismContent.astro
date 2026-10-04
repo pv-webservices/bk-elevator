@@ -1,0 +1,49 @@
+---
+import Icon from '../Icon.astro';
+
+const mechanics = [
+  ['Drive & machine', 'The drive provides the motion that moves the elevator. Selection depends on the building and the system design.', 'gear'],
+  ['Suspension & ropes', 'Suspension components connect the moving elements of a traction system. Rope selection and condition matter.', 'layers'],
+  ['Guide rails', 'Aligned rails guide the cabin along its travel path within the shaft.', 'up'],
+  ['Cabin', 'The passenger space brings together structure, lighting, finishes and operating controls.', 'cabin'],
+  ['Doors', 'Cabin and landing doors work together to manage the entrance and arrival experience.', 'expand'],
+  ['Control system', 'Controls coordinate travel, stopping, doors and passenger inputs across the installation.', 'support'],
+];
+---
+
+<section class="section mechanism-story">
+  <div class="wide mechanism-layout">
+    <div class="mechanism-sticky">
+      <div class="mechanism-visual">
+        <img
+          src="/images/mechanism/lift mechanism-1.webp"
+          alt="Lift shaft showing the drive, mechanical framework and vertical guide system"
+          width="1200"
+          height="900"
+          loading="lazy"
+        />
+        <span class="mechanism-scan" aria-hidden="true"></span>
+      </div>
+      <div class="mechanism-readout">
+        <span>System overview</span>
+        <strong id="mechanism-part">01 / DRIVE & MACHINE</strong>
+        <div class="mechanism-meter" aria-hidden="true"><span data-mechanism-meter></span></div>
+      </div>
+    </div>
+    <div class="mechanism-steps">
+      {
+        mechanics.map(([t, d, icon], i) => (
+          <article data-mechanism={i + 1} data-part={t} class="mechanism-step">
+            <span class="feature-icon">
+              <Icon name={icon} size={22} />
+            </span>
+            <span class="floor-tag">0{i + 1}</span>
+            <h2>{t}</h2>
+            <p>{d}</p>
+          </article>
+        ))
+      }
+      <a class="btn" href="/technical/components/"><span>See the components</span><Icon size={16} /></a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,35 @@
+---
+import Icon from '../Icon.astro';
+import PanelCard from '../PanelCard.astro';
+import CategoryCard from '../CategoryCard.astro';
+import { panels, categories } from '../../data/site';
+---
+
+<section class="section light">
+  <div class="wide">
+    <div class="section-head" data-reveal>
+      <div>
+        <div class="eyebrow">Passenger interfaces</div>
+        <h2>Details you <em>connect with.</em></h2>
+      </div>
+      <a href="/products/cabin-panels/" class="text-link">About operating panels <Icon size={18} /></a>
+    </div>
+    <div class="panel-grid">
+      {panels.map((p, i) => <PanelCard panel={p} index={i} />)}
+    </div>
+  </div>
+</section>
+<section class="section light components-band">
+  <div class="wide">
+    <div class="section-head" data-reveal>
+      <div>
+        <div class="eyebrow">The complete system</div>
+        <h2>Components <em>with purpose.</em></h2>
+      </div>
+      <p>Doors, drives, ropes, rails and controls — selected to work together as one installation.</p>
+    </div>
+    <div class="category-grid">
+      {categories.map((c, i) => <CategoryCard category={c} index={i} />)}
+    </div>
+  </div>
+</section>

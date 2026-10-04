@@ -1,0 +1,45 @@
+---
+import Icon from '../Icon.astro';
+import VideoCard from '../VideoCard.astro';
+import { videos, type PageInfo } from '../../data/site';
+
+interface Props {
+  page: PageInfo;
+}
+const { page } = Astro.props;
+const projects = page.kind === 'projects';
+const list = projects ? videos.filter((v) => v.id !== 'touch-panel') : videos;
+---
+
+<section class="section dark">
+  <div class="wide">
+    <div class="section-head" data-reveal>
+      <div>
+        <div class="eyebrow">{projects ? 'On-site perspectives' : 'The video collection'}</div>
+        <h2>{projects ? 'Spaces brought to life.' : 'Our elevators, in action.'}</h2>
+      </div>
+      <p>
+        {
+          projects
+            ? 'Original installation footage, presented without unverified customer or location details.'
+            : 'Select a film to explore the details. Videos load only when you press play.'
+        }
+      </p>
+    </div>
+    <div class="video-grid video-grid-stagger">
+      {
+        list.map((video, i) => (
+          <div data-reveal style={`--i:${i % 3}`}>
+            <VideoCard video={video} index={i} />
+          </div>
+        ))
+      }
+    </div>
+    <div class="button-row spaced" data-reveal>
+      <a href="/enquiry/" class="btn"><span>Discuss a solution for your space</span><Icon size={16} /></a>
+      <a href={projects ? '/videos/' : '/projects/'} class="btn btn-ghost">
+        <span>{projects ? 'Watch every film' : 'On-site gallery'}</span><Icon size={16} />
+      </a>
+    </div>
+  </div>
+</section>

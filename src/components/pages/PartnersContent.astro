@@ -1,0 +1,36 @@
+---
+import Icon from '../Icon.astro';
+import Ticker from '../Ticker.astro';
+import { partners } from '../../data/site';
+---
+
+<Ticker items={partners.map((p) => p.name)} />
+<section class="section light">
+  <div class="wide">
+    <div class="section-head" data-reveal>
+      <div>
+        <div class="eyebrow">A connected ecosystem</div>
+        <h2>Leading brands. <em>Purposeful components.</em></h2>
+      </div>
+      <p>Component brands and categories from the supplied brief. Selection and availability depend on your project.</p>
+    </div>
+    <div class="partner-grid">
+      {
+        partners.map((p, i) => (
+          <a class="partner-card card-hover" href={`/products/${p.slug}/`} data-reveal style={`--i:${i % 4}`} data-tilt>
+            <span class="partner-index">0{i + 1}</span>
+            <strong>{p.name}</strong>
+            <span class="partner-cat">{p.category}</span>
+            <span class="service-more">
+              Explore the component <Icon size={16} />
+            </span>
+          </a>
+        ))
+      }
+    </div>
+    <p class="note">
+      Brand names identify component sources and categories. They do not indicate an exclusive, authorised or official
+      distributor relationship.
+    </p>
+  </div>
+</section>

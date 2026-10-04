@@ -1,0 +1,74 @@
+---
+import Icon from '../Icon.astro';
+import type { PageInfo } from '../../data/site';
+
+interface Props {
+  page: PageInfo;
+  cta?: { label: string; href: string };
+}
+const { page, cta } = Astro.props;
+const [first, ...rest] = page.title.split('\n');
+const segments = page.slug.split('/');
+const isCabin = page.image.startsWith('/images/cabins/');
+const isCutout = page.image.startsWith('/images/products/') || page.image.includes('technolgy-image');
+const crumbLabel = (seg: string) => seg.replace(/-/g, ' ');
+---
+
+<section class:list={['page-hero', { 'page-hero-cutout': isCutout }]}>
+  <div class="hero-shaft" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+  <div class="wide page-hero-grid">
+    <div class="page-hero-copy">
+      <nav class="breadcrumb" aria-label="Breadcrumb" data-load="1">
+        <a href="/">Home</a>
+        <Icon name="chevron" size={12} />
+        {
+          segments.length > 1 && (
+            <>
+              <a href={`/${segments[0]}/`}>{crumbLabel(segments[0])}</a>
+              <Icon name="chevron" size={12} />
+            </>
+          )
+        }
+        <span aria-current="page">{page.eyebrow}</span>
+      </nav>
+      <div class="eyebrow" data-load="2"><Icon name="spark" size={13} /> {page.eyebrow}</div>
+      <h1 data-load="3">
+        {first}
+        {rest.length > 0 && <em>{rest.join(' ')}</em>}
+      </h1>
+      <p class="page-hero-lead" data-load="4">{page.description}</p>
+      {
+        cta && (
+          <div class="button-row" data-load="5">
+            <a class="btn" href={cta.href}>
+              <span>{cta.label}</span>
+              <Icon size={16} />
+            </a>
+            <a class="text-link" href="/contact/">
+              Talk to our team <Icon size={16} />
+            </a>
+          </div>
+        )
+      }
+    </div>
+    <figure class="page-hero-media" data-load="3">
+      <div class="page-hero-frame">
+        <img
+          src={isCabin ? page.image.replace('.webp', '-720.webp') : page.image}
+          srcset={isCabin
+            ? `${page.image.replace('.webp', '-480.webp')} 480w, ${page.image.replace('.webp', '-720.webp')} 720w, ${page.image} 1000w`
+            : undefined}
+          sizes="(max-width: 900px) 92vw, 42vw"
+          width="1000"
+          height="1250"
+          alt={`${page.eyebrow} — ${page.title.replace('\n', ' ')}`}
+          fetchpriority="high"
+          data-parallax="0.08"
+        />
+      </div>
+      <figcaption>
+        <span class="pulse-dot"></span> Bk Elevator · {page.eyebrow}
+      </figcaption>
+    </figure>
+  </div>
+</section>

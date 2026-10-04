@@ -1,0 +1,117 @@
+---
+import Brand from './Brand.astro';
+import Icon from './Icon.astro';
+import { company } from '../data/site';
+
+const path = Astro.url.pathname;
+type Link = [label: string, href: string, note?: string];
+const nav: { label: string; href: string; match: string[]; children?: Link[] }[] = [
+  { label: 'About', href: '/about/', match: ['/about/'] },
+  { label: 'Cabins', href: '/cabin-designs/', match: ['/cabin-designs/'] },
+  {
+    label: 'Products',
+    href: '/products/',
+    match: ['/products/'],
+    children: [
+      ['All products', '/products/', 'Components & interfaces'],
+      ['Operating panels', '/products/cabin-panels/', 'Six signature finishes'],
+      ['Touch panels', '/products/touch-panels/', 'Intuitive interaction'],
+      ['Elevator doors', '/products/elevator-doors/', 'Automatic entrances'],
+      ['Gearboxes', '/products/gearboxes/', 'Drive components'],
+    ],
+  },
+  {
+    label: 'Technical',
+    href: '/technical/',
+    match: ['/technical/'],
+    children: [
+      ['Technical overview', '/technical/', 'Engineering & technology'],
+      ['Elevator mechanism', '/technical/elevator-mechanism/', 'The anatomy of elevation'],
+      ['Components', '/technical/components/', 'One connected system'],
+      ['Safety & engineering', '/technical/safety-engineering/', 'Considered at every stage'],
+    ],
+  },
+  {
+    label: 'Services',
+    href: '/services/',
+    match: ['/services/'],
+    children: [
+      ['All services', '/services/', 'From idea to every ride'],
+      ['Installation', '/services/installation/', 'Planning to handover'],
+      ['Modernization', '/services/modernization/', 'Upgrade what you have'],
+      ['Maintenance', '/services/maintenance/', 'Care that keeps you moving'],
+      ['AMC support', '/services/amc/', 'Long-term service plans'],
+    ],
+  },
+  {
+    label: 'Gallery',
+    href: '/projects/',
+    match: ['/projects/', '/videos/'],
+    children: [
+      ['On-site gallery', '/projects/', 'Real installations'],
+      ['Video showcase', '/videos/', 'Elevators in motion'],
+    ],
+  },
+  { label: 'Partners', href: '/partners/', match: ['/partners/'] },
+  { label: 'Contact', href: '/contact/', match: ['/contact/', '/enquiry/'] },
+];
+const isActive = (match: string[]) => match.some((m) => path.startsWith(m));
+---
+
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="scroll-cable" aria-hidden="true"><span></span></div>
+<header class="site-header" data-header>
+  <div class="wide header-inner">
+    <Brand />
+    <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+      <div class="nav-list">
+        {
+          nav.map((item, index) =>
+            item.children ? (
+              <div class="nav-group" style={`--i:${index}`}>
+                <a href={item.href} class="nav-link" aria-current={isActive(item.match) ? 'page' : undefined}>
+                  {item.label}
+                  <Icon name="chevron" size={12} />
+                </a>
+                <div class="nav-dropdown">
+                  {item.children.map(([title, url, note]) => (
+                    <a href={url}>
+                      <span>
+                        <strong>{title}</strong>
+                        <small>{note}</small>
+                      </span>
+                      <Icon size={14} />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <a
+                href={item.href}
+                class="nav-link"
+                style={`--i:${index}`}
+                aria-current={isActive(item.match) ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            ),
+          )
+        }
+      </div>
+      <div class="nav-mobile-footer">
+        <a href={`tel:+91${company.phone}`}><Icon name="phone" size={16} /> +91 {company.phone}</a>
+        <a href={`mailto:${company.email}`}><Icon name="mail" size={16} /> {company.email}</a>
+        <a class="btn" href="/enquiry/"><span>Get a quote</span><Icon size={16} /></a>
+      </div>
+    </nav>
+    <div class="header-actions">
+      <a class="header-call" href={`tel:+91${company.phone}`} aria-label={`Call +91 ${company.phone}`}>
+        <Icon name="phone" size={17} />
+      </a>
+      <a class="btn btn-small header-quote" href="/enquiry/"><span>Get a quote</span><Icon size={15} /></a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>

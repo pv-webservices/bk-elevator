@@ -1,0 +1,30 @@
+---
+import Icon from '../Icon.astro';
+import VideoCard from '../VideoCard.astro';
+import { videos } from '../../data/site';
+---
+
+<section class="section dark motion" id="floor-7" data-floor="7" data-floor-name="In motion">
+  <div class="wide">
+    <div class="section-head" data-reveal>
+      <div>
+        <div class="eyebrow"><span class="floor-tag">07</span> Elevation in motion</div>
+        <h2>Step inside. <em>See the difference.</em></h2>
+      </div>
+      <div class="head-aside">
+        <p>Original footage of cabins, doors and touch panels. Drag, swipe or tap a film to play it.</p>
+        <a class="text-link" href="/videos/">View the video collection <Icon size={18} /></a>
+      </div>
+    </div>
+  </div>
+  <div class="reel" data-autoscroll tabindex="0" aria-label="Video reel, scrollable">
+    <div class="reel-track">
+      {videos.map((v, i) => <VideoCard video={v} index={i} />)}
+      {videos.map((v, i) => <VideoCard video={v} index={i} decorative />)}
+    </div>
+  </div>
+  <div class="wide reel-foot">
+    <span class="badge-live"><span class="pulse-dot"></span> Original on-site footage</span>
+    <a class="btn btn-ghost" href="/projects/"><span>Explore the on-site gallery</span><Icon size={16} /></a>
+  </div>
+</section>

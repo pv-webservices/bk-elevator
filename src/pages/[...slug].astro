@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTA from '../components/CTA.astro';
+import PageHero from '../components/pages/PageHero.astro';
+import AboutContent from '../components/pages/AboutContent.astro';
+import CabinsContent from '../components/pages/CabinsContent.astro';
+import ProductsContent from '../components/pages/ProductsContent.astro';
+import ProductDetail from '../components/pages/ProductDetail.astro';
+import TechnicalContent from '../components/pages/TechnicalContent.astro';
+import MechanismContent from '../components/pages/MechanismContent.astro';
+import SafetyContent from '../components/pages/SafetyContent.astro';
+import ServicesContent from '../components/pages/ServicesContent.astro';
+import MediaContent from '../components/pages/MediaContent.astro';
+import PartnersContent from '../components/pages/PartnersContent.astro';
+import ContactContent from '../components/pages/ContactContent.astro';
+import LegalContent from '../components/pages/LegalContent.astro';
+import { pages, type PageInfo } from '../data/site';
+
+export function getStaticPaths() {
+  return pages.map((page) => ({ params: { slug: page.slug }, props: { page } }));
+}
+interface Props {
+  page: PageInfo;
+}
+const { page } = Astro.props;
+const { kind } = page;
+const legal = kind === 'privacy' || kind === 'terms';
+const contact = kind === 'contact' || kind === 'enquiry';
+
+const interestByKind: Record<string, string> = {
+  cabins: 'Cabin design',
+  product: 'Operating panels',
+  category: 'Technical consultation',
+  products: 'Operating panels',
+  services: 'Installation',
+};
+const interest = kind === 'service' ? page.title : (interestByKind[kind] ?? 'Technical consultation');
+const cta = legal || contact ? undefined : { label: 'Discuss your requirements', href: `/enquiry/?interest=${encodeURIComponent(interest)}` };
+---
+
+<Layout title={page.title.replace('\n', ' ')} description={page.description} image={page.image}>
+  <PageHero page={page} cta={cta} />
+  {kind === 'about' && <AboutContent />}
+  {kind === 'cabins' && <CabinsContent />}
+  {kind === 'products' && <ProductsContent />}
+  {(kind === 'product' || kind === 'category') && <ProductDetail page={page} />}
+  {kind === 'technical' && <TechnicalContent />}
+  {kind === 'mechanism' && <MechanismContent />}
+  {kind === 'safety' && <SafetyContent />}
+  {(kind === 'services' || kind === 'service') && <ServicesContent page={page} />}
+  {(kind === 'videos' || kind === 'projects') && <MediaContent page={page} />}
+  {kind === 'partners' && <PartnersContent />}
+  {contact && <ContactContent />}
+  {legal && <LegalContent kind={kind} />}
+  {!legal && !contact && <CTA />}
+</Layout>

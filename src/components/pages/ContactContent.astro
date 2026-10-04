@@ -1,0 +1,48 @@
+---
+import Icon from '../Icon.astro';
+import EnquiryForm from '../EnquiryForm.astro';
+import { company, mapUrl } from '../../data/site';
+
+const methods = [
+  { icon: 'phone', label: 'Call our team', value: `+91 ${company.phone}`, href: `tel:+91${company.phone}` },
+  { icon: 'mail', label: 'Project enquiries', value: company.sales, href: `mailto:${company.sales}` },
+  { icon: 'mail', label: 'General enquiries', value: company.email, href: `mailto:${company.email}` },
+  { icon: 'location', label: 'Find us in Nagpur', value: company.address, href: mapUrl, external: true },
+];
+---
+
+<section class="section light">
+  <div class="wide contact-grid">
+    <div class="contact-details" data-reveal>
+      <div class="eyebrow">A conversation away</div>
+      <h2>Let’s find <em>your next level.</em></h2>
+      <p>Discuss your space, explore the collection or ask our team about the system behind it.</p>
+      <div class="contact-methods">
+        {
+          methods.map((m) => (
+            <a
+              class="contact-method card-hover"
+              href={m.href}
+              target={m.external ? '_blank' : undefined}
+              rel={m.external ? 'noopener' : undefined}
+            >
+              <span class="feature-icon">
+                <Icon name={m.icon} size={20} />
+              </span>
+              <span>
+                <small>{m.label}</small>
+                <strong>{m.value}</strong>
+              </span>
+              <Icon size={16} />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+    <div class="form-container" data-reveal style="--i:1">
+      <h2>Tell us what you have in mind.</h2>
+      <p>Fields marked * are required. We reply by email or phone.</p>
+      <EnquiryForm />
+    </div>
+  </div>
+</section>

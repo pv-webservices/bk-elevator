@@ -1,0 +1,53 @@
+---
+import Icon from '../Icon.astro';
+import { services } from '../../data/site';
+---
+
+<section class="zoom-scene" id="floor-5" data-floor="5" data-floor-name="Engineering" data-zoom>
+  <div class="zoom-sticky">
+    <div class="zoom-media" data-zoom-media>
+      <img
+        src="/images/mechanism/lift mechanism-1.webp"
+        alt="Looking up an elevator shaft at the drive, ropes and guide rail framework"
+        width="1200"
+        height="900"
+        loading="lazy"
+      />
+      <span class="zoom-scrim"></span>
+    </div>
+    <div class="wide zoom-copy" data-zoom-copy>
+      <div class="eyebrow"><span class="floor-tag">05</span> The intelligence within</div>
+      <h2>Beautifully designed. <em>Precisely engineered.</em></h2>
+      <p>Behind every effortless journey is a system built with purpose — and people who care about it.</p>
+      <a class="btn" href="/technical/"><span>Explore our engineering</span><Icon size={16} /></a>
+    </div>
+  </div>
+</section>
+<section class="section services-band" aria-labelledby="services-title">
+  <div class="wide">
+    <div class="section-head" data-reveal>
+      <div>
+        <div class="eyebrow">Services · Care at every level</div>
+        <h2 id="services-title">From the first idea <em>to every ride after.</em></h2>
+      </div>
+      <a class="text-link" href="/services/">All services <Icon size={18} /></a>
+    </div>
+    <div class="service-grid">
+      {
+        services.map((s, i) => (
+          <a href={`/services/${s.slug}/`} class="service-card card-hover" data-reveal style={`--i:${i}`} data-tilt>
+            <span class="service-index">0{i + 1}</span>
+            <span class="service-icon">
+              <Icon name={s.icon} size={28} />
+            </span>
+            <h3>{s.title}</h3>
+            <p>{s.desc}</p>
+            <span class="service-more">
+              Learn more <Icon size={16} />
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

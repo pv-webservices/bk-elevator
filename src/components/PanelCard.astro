@@ -1,0 +1,29 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  panel: { id: number; slug: string; title: string; finish: string };
+  index: number;
+}
+const { panel, index } = Astro.props;
+---
+
+<a class="panel-card card-hover" href={`/products/${panel.slug}/`} data-reveal style={`--i:${index % 3}`} data-tilt>
+  <span class="panel-card-media">
+    <span class:list={['swatch', `swatch-${panel.slug}`]} aria-hidden="true"></span>
+    <img
+      src={`/images/products/panel-${panel.id}.webp`}
+      alt={`${panel.title} cabin and landing operating panel`}
+      loading="lazy"
+      width="700"
+      height="1000"
+    />
+  </span>
+  <span class="panel-card-body">
+    <span>
+      <strong>{panel.title}</strong>
+      <small>{panel.finish}</small>
+    </span>
+    <span class="round-link"><Icon size={16} /></span>
+  </span>
+</a>

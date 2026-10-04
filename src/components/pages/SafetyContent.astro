@@ -1,0 +1,56 @@
+---
+import Icon from '../Icon.astro';
+
+const steps = [
+  ['Review', 'Review the building, intended usage and access requirements.'],
+  ['Select', 'Select components as a compatible system.'],
+  ['Coordinate', 'Coordinate installation, inspection and commissioning.'],
+  ['Care', 'Plan maintenance and discuss changes as the system ages.'],
+];
+---
+
+<section class="section light">
+  <div class="wide editorial-split">
+    <div data-reveal>
+      <div class="eyebrow">Our engineering philosophy</div>
+      <h2>Ask carefully. <em>Plan precisely.</em></h2>
+    </div>
+    <div data-reveal style="--i:1">
+      <p class="lead">Reliable operation is considered across the entire life of an installation.</p>
+      <p>
+        Applicable requirements, safety arrangements and technical specifications are reviewed for each project. Speak to
+        our team about your building and intended application.
+      </p>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="wide">
+    <div class="timeline">
+      {
+        steps.map(([t, d], i) => (
+          <article class="timeline-step card-hover" data-reveal style={`--i:${i}`}>
+            <span class="timeline-dot">
+              <Icon name="shield" size={20} />
+            </span>
+            <small>Stage 0{i + 1}</small>
+            <h3>{t}</h3>
+            <p>{d}</p>
+          </article>
+        ))
+      }
+    </div>
+    <div class="link-grid link-grid-2">
+      <a href="/services/maintenance/" class="link-card card-hover" data-reveal>
+        <span class="feature-icon"><Icon name="tools" size={22} /></span>
+        <span><small>Service</small><strong>Maintenance & ongoing care</strong></span>
+        <Icon size={18} />
+      </a>
+      <a href="/technical/components/" class="link-card card-hover" data-reveal style="--i:1">
+        <span class="feature-icon"><Icon name="gear" size={22} /></span>
+        <span><small>Technology</small><strong>Component integration</strong></span>
+        <Icon size={18} />
+      </a>
+    </div>
+  </div>
+</section>

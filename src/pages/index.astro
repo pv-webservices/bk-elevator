@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import Ticker from '../components/Ticker.astro';
+import CTA from '../components/CTA.astro';
+import Hero from '../components/home/Hero.astro';
+import Intro from '../components/home/Intro.astro';
+import Collection from '../components/home/Collection.astro';
+import Process from '../components/home/Process.astro';
+import Engineering from '../components/home/Engineering.astro';
+import Components from '../components/home/Components.astro';
+import Motion from '../components/home/Motion.astro';
+import Technology from '../components/home/Technology.astro';
+import Sectors from '../components/home/Sectors.astro';
+
+const floors = [
+  'The lobby',
+  'Our story',
+  'Cabin collection',
+  'The journey',
+  'Engineering',
+  'Components',
+  'In motion',
+  'Technology',
+  'Your spaces',
+  'Your next level',
+];
+---
+
+<Layout
+  title="Premium elevators. Extraordinary journeys."
+  description="Explore premium elevator cabins, engineering, operating panels, installation and maintenance with Bk Elevator Pvt. Ltd, Nagpur."
+  home
+>
+  <aside class="floor-hud" aria-label="Homepage floors" data-hud>
+    <div class="hud-display" aria-hidden="true">
+      <span class="hud-arrow" data-hud-arrow><Icon name="tri-up" size={10} /></span>
+      <span class="hud-number" data-hud-number>01</span>
+    </div>
+    <span class="hud-name" data-hud-name aria-hidden="true">The lobby</span>
+    <div class="hud-rail">
+      <span class="hud-car" data-hud-car aria-hidden="true"></span>
+      {
+        floors.map((name, i) => (
+          <a
+            href={`#floor-${i + 1}`}
+            class:list={['hud-stop', { active: i === 0 }]}
+            data-stop={i + 1}
+            aria-label={`Floor ${String(i + 1).padStart(2, '0')}: ${name}`}
+          >
+            <i>{name}</i>
+          </a>
+        ))
+      }
+    </div>
+  </aside>
+
+  <Hero />
+  <Ticker
+    items={[
+      'Premium cabin designs',
+      'Safety at every level',
+      'Modern technology',
+      'Installation',
+      'Modernization',
+      'Maintenance',
+      'AMC support',
+      'End-to-end care',
+    ]}
+  />
+  <Intro />
+  <Collection />
+  <Process />
+  <Engineering />
+  <Components />
+  <Motion />
+  <Technology />
+  <Sectors />
+  <CTA floor />
+</Layout>

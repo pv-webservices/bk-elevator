@@ -1,0 +1,31 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  video: { id: string; title: string; tag: string };
+  index?: number;
+  decorative?: boolean;
+}
+const { video, index, decorative = false } = Astro.props;
+---
+
+<button
+  class="video-card card-hover"
+  data-video={`/videos/${video.id}.mp4`}
+  data-title={video.title}
+  data-poster={`/images/videos/${video.id}.webp`}
+  tabindex={decorative ? -1 : undefined}
+  aria-hidden={decorative ? 'true' : undefined}
+  aria-label={`Play video: ${video.title}`}
+>
+  <span class="video-media">
+    <img src={`/images/videos/${video.id}.webp`} alt="" width="720" height="1280" loading="lazy" />
+    <span class="video-scrim"></span>
+    <span class="play-circle"><Icon name="play" size={20} /></span>
+    {index !== undefined && <span class="video-index">{String(index + 1).padStart(2, '0')}</span>}
+  </span>
+  <span class="video-caption">
+    <small>{video.tag}</small>
+    <strong>{video.title}</strong>
+  </span>
+</button>

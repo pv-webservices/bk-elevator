@@ -1,0 +1,116 @@
+---
+import Icon from '../Icon.astro';
+import PanelCard from '../PanelCard.astro';
+import VideoCard from '../VideoCard.astro';
+import { panels, categories, videos, type PageInfo } from '../../data/site';
+
+interface Props {
+  page: PageInfo;
+}
+const { page } = Astro.props;
+const isPanel = page.kind === 'product';
+const showPanels = isPanel || page.slug === 'products/cabin-panels';
+const related = categories.filter((c) => !page.slug.endsWith(c.slug)).slice(0, 3);
+---
+
+<section class="section light">
+  <div class="wide editorial-split">
+    <div data-reveal>
+      <div class="eyebrow">A considered choice</div>
+      <h2>Designed for <em>the complete experience.</em></h2>
+      {
+        page.brand && (
+          <p class="brand-pill">
+            <Icon name="layers" size={16} /> Component connection <strong>{page.brand}</strong>
+          </p>
+        )
+      }
+    </div>
+    <div data-reveal style="--i:1">
+      <ul class="check-list check-list-large">
+        {
+          page.points?.map((p) => (
+            <li>
+              <Icon name="check" size={18} />
+              {p}
+            </li>
+          ))
+        }
+      </ul>
+      <p>
+        Dimensions, configuration, compatibility and availability are confirmed with our team for your project. Images
+        show the supplied collection; the final selection is made around your installation.
+      </p>
+      <div class="button-row spaced">
+        <a class="btn" href={`/enquiry/?interest=${encodeURIComponent(isPanel || showPanels ? 'Operating panels' : 'Technical consultation')}`}>
+          <span>Request details</span>
+          <Icon size={16} />
+        </a>
+        <a class="text-link" href="/technical/components/">How components connect <Icon size={16} /></a>
+      </div>
+    </div>
+  </div>
+</section>
+{
+  page.slug === 'products/touch-panels' && (
+    <section class="section">
+      <div class="wide feature-video">
+        <div data-reveal>
+          <div class="eyebrow">See it in action</div>
+          <h2>
+            Touch. Select. <em>Arrive.</em>
+          </h2>
+          <p>Watch the touch-panel interface demonstrated with its capacitive display and floor selection.</p>
+        </div>
+        <div class="feature-video-card" data-reveal style="--i:1">
+          <VideoCard video={videos[5]} />
+        </div>
+      </div>
+    </section>
+  )
+}
+{
+  showPanels && (
+    <section class="section light components-band">
+      <div class="wide">
+        <div class="section-head" data-reveal>
+          <div>
+            <div class="eyebrow">{isPanel ? 'Compare finishes' : 'The panel collection'}</div>
+            <h2>
+              Six finishes. <em>One clear interface.</em>
+            </h2>
+          </div>
+        </div>
+        <div class="panel-grid">
+          {panels.map((p, i) => (
+            <PanelCard panel={p} index={i} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+<section class="section">
+  <div class="wide">
+    <div class="section-head" data-reveal>
+      <h2>Explore the <em>connections.</em></h2>
+      <a class="text-link" href="/products/">All products <Icon size={18} /></a>
+    </div>
+    <div class="link-grid">
+      {
+        related.map((c, i) => (
+          <a href={`/products/${c.slug}/`} class="link-card card-hover" data-reveal style={`--i:${i}`}>
+            <span class="feature-icon">
+              <Icon name="layers" size={22} />
+            </span>
+            <span>
+              <small>{c.brand}</small>
+              <strong>{c.title}</strong>
+            </span>
+            <Icon size={18} />
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

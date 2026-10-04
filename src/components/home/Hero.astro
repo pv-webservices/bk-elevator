@@ -1,0 +1,114 @@
+---
+import Icon from '../Icon.astro';
+import { cabins, cabinSrcset, stats, enquiryUrl } from '../../data/site';
+
+const showcase = [8, 5, 1, 3, 9, 6].map((id) => cabins.find((c) => c.id === id)!);
+const first = showcase[0];
+---
+
+<section class="hero" id="floor-1" data-floor="1" data-floor-name="The lobby">
+  <div class="hero-shaft" aria-hidden="true">
+    <span></span><span></span><span></span><span></span>
+    <i class="hero-beam"></i><i class="hero-beam hero-beam-2"></i>
+  </div>
+  <div class="hero-glow" aria-hidden="true"></div>
+
+  <div class="wide hero-grid">
+    <div class="hero-copy">
+      <p class="hero-kicker" data-load="1">
+        <span class="pulse-dot"></span> Premium elevator solutions · Nagpur
+      </p>
+      <h1 class="hero-title">
+        <span class="line" data-load="2"><span>We elevate</span></span>
+        <span class="line" data-load="3"><span><em>your world.</em></span></span>
+      </h1>
+      <p class="hero-lead" data-load="4">
+        Signature cabins, precise engineering and care that continues long after the first ride. Step in — your
+        journey to a better building starts on the ground floor.
+      </p>
+      <div class="hero-actions" data-load="5">
+        <a class="btn btn-large" href="/cabin-designs/"><span>Explore cabin designs</span><Icon /></a>
+        <button
+          class="play-link"
+          data-video="/videos/elevator-1.mp4"
+          data-title="Inside the gold cabin"
+          data-poster="/images/videos/elevator-1.webp"
+        >
+          <span class="play-ring"><Icon name="play" size={15} /></span>
+          <span><strong>Watch the film</strong><small>Inside the gold cabin</small></span>
+        </button>
+      </div>
+      <dl class="hero-stats" data-load="6">
+        {
+          stats.map((s) => (
+            <div>
+              <dt>
+                <span data-count={s.value}>{s.value}</span>
+              </dt>
+              <dd>{s.label}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+
+    <div class="hero-stage" data-load="3" data-tilt-scene>
+      <div class="lift-wrap">
+      <div class="lift" data-lift>
+        <div class="lift-head">
+          <span class="lift-arrow" aria-hidden="true"><Icon name="tri-up" size={14} /></span>
+          <span class="lift-floor" data-lift-floor aria-hidden="true">01</span>
+          <span class="lift-name" data-lift-name aria-live="polite">{first.title}</span>
+        </div>
+        <div class="lift-opening">
+          <div class="lift-car">
+          <div class="lift-slides">
+            {
+              showcase.map((c, i) => (
+                <img
+                  class:list={['lift-slide', { 'is-active': i === 0 }]}
+                  src={`/images/cabins/cabin-${c.id}-720.webp`}
+                  srcset={cabinSrcset(c.id)}
+                  sizes="(max-width: 900px) 88vw, 40vw"
+                  width="1000"
+                  height="1400"
+                  alt={`${c.title} elevator cabin — ${c.finish}`}
+                  data-title={c.title}
+                  data-finish={c.finish}
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                  fetchpriority={i === 0 ? 'high' : undefined}
+                />
+              ))
+            }
+          </div>
+          <span class="lift-door lift-door-left" aria-hidden="true"></span>
+          <span class="lift-door lift-door-right" aria-hidden="true"></span>
+          </div>
+        </div>
+        <div class="lift-sill" aria-hidden="true"></div>
+      </div>
+
+      <div class="call-panel" role="group" aria-label="Browse signature cabins">
+        <button class="call-button" data-lift-next aria-label="Next cabin design">
+          <Icon name="tri-up" size={13} />
+        </button>
+        <button class="call-button" data-lift-prev aria-label="Previous cabin design">
+          <Icon name="tri-down" size={13} />
+        </button>
+      </div>
+      </div>
+
+      <a class="arrival-card" data-lift-link href={enquiryUrl('Cabin design', { design: first.title })}>
+        <small>Now arriving</small>
+        <strong data-lift-title>{first.title}</strong>
+        <span data-lift-finish>{first.finish}</span>
+        <em>Enquire about this design <Icon size={14} /></em>
+      </a>
+    </div>
+  </div>
+
+  <a href="#floor-2" class="hero-scroll" data-load="7">
+    <span class="hero-scroll-track"><span></span></span>
+    Scroll to ride up
+  </a>
+</section>

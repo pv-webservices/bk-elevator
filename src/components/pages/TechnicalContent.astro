@@ -1,0 +1,94 @@
+---
+import Icon from '../Icon.astro';
+import { technicalDocs } from '../../data/site';
+
+const links = [
+  ['Elevator mechanism', 'Drive, suspension, guidance, cabin, doors and controls.', 'elevator-mechanism', 'gear'],
+  ['Components & technology', 'A connected view of doors, drives, rails and controls.', 'components', 'layers'],
+  ['Safety & engineering', 'A considered approach from planning to ongoing care.', 'safety-engineering', 'shield'],
+];
+---
+
+<section class="section light">
+  <div class="wide technical-feature">
+    <div data-reveal>
+      <div class="eyebrow">Understand the system</div>
+      <h2>Every part. <em>One seamless journey.</em></h2>
+      <p>
+        Trace the relationship between the drive, ropes, guide rails, cabin, doors and controls — and see how
+        machine-room and machine-room-less arrangements compare.
+      </p>
+      <a class="btn" href="/technical/elevator-mechanism/"><span>Explore the mechanism</span><Icon size={16} /></a>
+    </div>
+    <button
+      class="zoom-frame card-hover"
+      data-image="/images/technical/technolgy-image.webp"
+      data-title="Drive arrangement comparison"
+      data-reveal="clip"
+      aria-label="Enlarge the drive arrangement comparison"
+    >
+      <img
+        src="/images/technical/technolgy-image.webp"
+        alt="Technical illustration comparing machine-room and machine-room-less elevator drive arrangements"
+        width="1600"
+        height="1000"
+        loading="lazy"
+      />
+      <span class="zoom-frame-icon"><Icon name="expand" size={18} /></span>
+    </button>
+  </div>
+</section>
+<section class="section">
+  <div class="wide link-grid">
+    {
+      links.map(([t, d, s, i], index) => (
+        <a href={`/technical/${s}/`} class="link-card link-card-tall card-hover" data-reveal style={`--i:${index}`} data-tilt>
+          <span class="feature-icon">
+            <Icon name={i} size={24} />
+          </span>
+          <span>
+            <strong>{t}</strong>
+            <small class="link-desc">{d}</small>
+          </span>
+          <Icon size={18} />
+        </a>
+      ))
+    }
+  </div>
+</section>
+<section class="section light">
+  <div class="wide">
+    <div class="section-head" data-reveal>
+      <div>
+        <div class="eyebrow">Technical references</div>
+        <h2>A closer look <em>at the planning.</em></h2>
+      </div>
+      <p>Tap any reference to enlarge it. Project-specific dimensions always require a technical review.</p>
+    </div>
+    <div class="doc-grid">
+      {
+        technicalDocs.map((d, i) => (
+          <button
+            class="doc-card card-hover"
+            data-image={`/images/technical/${d.img}.webp`}
+            data-title={d.title}
+            data-gallery="technical"
+            data-reveal
+            style={`--i:${i % 4}`}
+          >
+            <span class="doc-media">
+              <img src={`/images/technical/${d.img}.webp`} alt={d.title} loading="lazy" width="1600" height="1000" />
+            </span>
+            <span class="doc-caption">
+              <span>
+                <small>Reference {String(i + 1).padStart(2, '0')}</small>
+                {d.title}
+              </span>
+              <Icon name="expand" size={16} />
+            </span>
+          </button>
+        ))
+      }
+    </div>
+  </div>
+</section>
