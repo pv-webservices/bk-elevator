@@ -518,9 +518,8 @@
   .page-hero h1 {
     font-size: clamp(36px, 10vw, 52px);
   }
-  .page-hero .button-row .btn {
-    width: 100%;
-    justify-content: space-between;
+  .page-hero .button-row {
+    gap: 14px 22px;
   }
   .stat-row {
     grid-template-columns: repeat(2, 1fr);

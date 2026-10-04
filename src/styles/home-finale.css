@@ -296,9 +296,12 @@
   .hero-actions {
     margin-top: 26px;
   }
-  .hero-actions .btn {
-    width: 100%;
-    justify-content: space-between;
+  .hero-actions {
+    gap: 14px 22px;
+  }
+  .play-ring {
+    width: 46px;
+    height: 46px;
   }
   .hero-stats {
     grid-template-columns: repeat(2, 1fr);
@@ -332,8 +335,49 @@
     left: auto;
     bottom: auto;
     width: 100%;
-    margin-top: -26px;
+    margin-top: 16px;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    column-gap: 14px;
+    padding: 14px 14px 14px 18px;
+    border-radius: 16px;
     animation: none;
+  }
+  .arrival-card small,
+  .arrival-card strong,
+  .arrival-card > span {
+    grid-column: 1;
+  }
+  .arrival-card strong {
+    font-size: 18px;
+  }
+  .arrival-card > span {
+    font-size: 12.5px;
+  }
+  .arrival-card em {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    margin: 0;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--ink-0);
+    transition: transform 0.4s var(--ease);
+  }
+  .arrival-card:active em,
+  .arrival-card.is-pressed em {
+    transform: rotate(-45deg);
+  }
+  .arrival-cta-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
   .hero-scroll {
     display: none;
@@ -432,9 +476,8 @@
   .zoom-copy p {
     font-size: 15.5px;
   }
-  .cta-content .btn {
-    width: 100%;
-    justify-content: space-between;
+  .cta-content .button-row {
+    gap: 12px;
   }
 }
 @media (max-width: 380px) {

@@ -1,5 +1,7 @@
 import { onScroll, onResize, reducedMotion, clamp } from './scroll';
 
+const HUD_IDLE_MS = 1600;
+
 /** Pinned section whose vertical scroll drives a horizontal track. */
 function initHorizontalPin(): void {
   document.querySelectorAll<HTMLElement>('[data-hpin]').forEach((section) => {
@@ -88,8 +90,13 @@ function initFloorHud(): void {
   const stops = Array.from(hud.querySelectorAll<HTMLAnchorElement>('.hud-stop'));
   let current = '';
   let lastY = window.scrollY;
+  let idleTimer = 0;
+  const compact = window.matchMedia('(max-width: 900px)');
 
   onScroll(() => {
+    hud.classList.remove('is-idle');
+    window.clearTimeout(idleTimer);
+    idleTimer = window.setTimeout(() => hud.classList.add('is-idle'), HUD_IDLE_MS);
     const y = window.scrollY;
     if (Math.abs(y - lastY) > 2) arrow?.classList.toggle('is-down', y < lastY);
     lastY = y;
@@ -100,7 +107,9 @@ function initFloorHud(): void {
     });
     const max = document.documentElement.scrollHeight - window.innerHeight;
     car?.style.setProperty('--p', String(max > 0 ? clamp(y / max) : 0));
-    hud.classList.toggle('is-hidden', active === floors[0] && y < window.innerHeight * 0.5);
+    // On phones the rail would sit on top of the hero lift's call buttons, so it waits until the lobby is left.
+    const inLobby = active === floors[0] && (compact.matches || y < window.innerHeight * 0.5);
+    hud.classList.toggle('is-hidden', inLobby);
     const floor = active.dataset.floor || '1';
     if (floor === current) return;
     current = floor;

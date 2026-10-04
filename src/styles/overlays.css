@@ -238,9 +238,18 @@ dialog[open] {
   .form-grid {
     grid-template-columns: 1fr;
   }
-  .btn {
-    white-space: normal;
-    text-align: left;
+  .btn,
+  .btn-large {
+    min-height: 48px;
+    padding: 5px 6px 5px 20px;
+    gap: 12px;
+    font-size: 14.5px;
+  }
+  .btn > svg,
+  .btn-large > svg {
+    width: 36px;
+    height: 36px;
+    padding: 10px;
   }
   dialog {
     padding: 12px;
